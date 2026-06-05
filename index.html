@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===== TOKENS ===== */
 :root {
@@ -35,6 +35,8 @@ body{
   background:var(--cream);
   color:var(--txt);
   overflow-x:hidden;
+  font-size: 16px; /* Enhanced baseline font-size for superior readability */
+  line-height: 1.6;
 }
 img{display:block;max-width:100%}
 button{cursor:pointer;font-family:'Jost',sans-serif}
@@ -63,7 +65,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 }
 .logo-name{
   font-family:'Playfair Display',serif;
-  font-size:1.25rem;font-weight:600;
+  font-size:1.35rem;font-weight:700; /* Bolder logo styling */
   color:var(--brown-deep);
   white-space:nowrap;
 }
@@ -72,7 +74,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
   display:flex;gap:28px;list-style:none;
 }
 .nav-links a{
-  font-size:.82rem;font-weight:500;
+  font-size:.85rem;font-weight:600; /* Bolder menu navigation links */
   letter-spacing:.06em;text-transform:uppercase;
   color:var(--txt2);text-decoration:none;
   transition:color .2s;
@@ -120,7 +122,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 .btn-primary{
   background:var(--terra);color:#fff;border:none;
   padding:14px 32px;
-  font-size:.85rem;font-weight:700;
+  font-size:.9rem;font-weight:700; /* Bolder button fonts for conversion design */
   letter-spacing:.1em;text-transform:uppercase;
   border-radius:3px;
   transition:all .25s;
@@ -134,7 +136,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
   background:transparent;color:var(--brown-deep);
   border:1.5px solid var(--brown-deep);
   padding:13px 30px;
-  font-size:.85rem;font-weight:500;
+  font-size:.9rem;font-weight:600; /* Bolder structural borders */
   letter-spacing:.05em;
   border-radius:3px;
   transition:all .25s;
@@ -153,7 +155,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 }
 .hero-tag{
   display:inline-flex;align-items:center;gap:10px;
-  font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--terra);
   margin-bottom:22px;
 }
@@ -170,8 +172,8 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 }
 .hero-h1 em{font-style:italic;color:var(--terra)}
 .hero-sub{
-  font-size:1.02rem;color:var(--txt2);
-  line-height:1.72;max-width:470px;
+  font-size:1.1rem;color:var(--txt2); /* Slightly larger hero subtitle body */
+  line-height:1.75;max-width:470px;
   margin-bottom:40px;
 }
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
@@ -192,8 +194,9 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 .hb-title{
   font-family:'Playfair Display',serif;
   font-size:1rem;color:var(--brown-deep);
+  font-weight: 700;
 }
-.hb-sub{font-size:.72rem;color:var(--txt2);margin-top:2px}
+.hb-sub{font-size:.75rem;color:var(--txt2);margin-top:2px}
 
 /* ===== STATS ===== */
 .stats-bar{
@@ -204,10 +207,11 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 .stat{text-align:center}
 .stat-n{
   font-family:'Playfair Display',serif;
-  font-size:1.9rem;color:var(--terra-lt);
+  font-size:2rem;color:var(--terra-lt);
+  font-weight: 700;
 }
 .stat-l{
-  font-size:.68rem;font-weight:600;letter-spacing:.12em;
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;
   text-transform:uppercase;color:rgba(255,255,255,.55);
   margin-top:3px;
 }
@@ -217,7 +221,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 .section-alt{background:var(--cream-dk)}
 .section-hd{text-align:center;margin-bottom:60px}
 .eyebrow{
-  font-size:.68rem;font-weight:700;letter-spacing:.18em;
+  font-size:.72rem;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--terra);
   margin-bottom:12px;
 }
@@ -227,7 +231,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
   color:var(--brown-deep);line-height:1.2;
 }
 .section-sub{
-  font-size:.97rem;color:var(--txt2);
+  font-size:1rem;color:var(--txt2);
   max-width:540px;margin:14px auto 0;line-height:1.72;
 }
 
@@ -261,30 +265,31 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 .card-badge{
   position:absolute;top:10px;left:10px;
   background:var(--terra);color:#fff;
-  font-size:.6rem;font-weight:700;
+  font-size:.65rem;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;
   padding:4px 9px;border-radius:2px;
 }
 .card-body{padding:14px 16px 16px}
 .card-cat{
-  font-size:.65rem;font-weight:700;letter-spacing:.12em;
+  font-size:.68rem;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:var(--terra);
   margin-bottom:5px;
 }
 .card-name{
   font-family:'Playfair Display',serif;
-  font-size:1.08rem;color:var(--brown-deep);
+  font-size:1.15rem;color:var(--brown-deep); /* Slightly bolder and bigger title names */
+  font-weight: 600;
   margin-bottom:10px;
 }
 .card-foot{
   display:flex;justify-content:space-between;align-items:center;
 }
 .card-price{
-  font-size:1.05rem;font-weight:700;color:var(--terra);
+  font-size:1.15rem;font-weight:700;color:var(--terra);
 }
 .card-stars{
   display:flex;align-items:center;gap:4px;
-  font-size:.72rem;
+  font-size:.76rem;
 }
 .stars{color:var(--gold);letter-spacing:1px}
 .rev-ct{color:var(--txt2)}
@@ -301,8 +306,9 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 }
 .strip-inner span{
   font-family:'Playfair Display',serif;
-  font-style:italic;font-size:1rem;color:#fff;
+  font-style:italic;font-size:1.05rem;color:#fff;
   padding:0 48px;
+  font-weight: 500;
 }
 .strip-inner span::before{content:'✦  '}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -325,17 +331,19 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 }
 .about-text h2{
   font-family:'Playfair Display',serif;
-  font-size:2.1rem;color:var(--brown-deep);
+  font-size:2.2rem;color:var(--brown-deep);
   line-height:1.25;margin-bottom:18px;
+  font-weight: 700;
 }
 .about-text p{
-  font-size:.95rem;color:var(--txt2);
+  font-size:.98rem;color:var(--txt2);
   line-height:1.8;margin-bottom:16px;
 }
 .about-feats{margin-top:28px;display:flex;flex-direction:column;gap:10px}
 .about-feat{
   display:flex;align-items:center;gap:10px;
-  font-size:.88rem;color:var(--txt2);
+  font-size:.92rem;color:var(--txt2);
+  font-weight: 500;
 }
 .feat-dot{
   width:7px;height:7px;border-radius:50%;
@@ -363,11 +371,12 @@ button{cursor:pointer;font-family:'Jost',sans-serif}
 .p-icon{font-size:2.4rem;display:block;margin-bottom:14px;position:relative;z-index:1}
 .p-title{
   font-family:'Playfair Display',serif;
-  font-size:1.05rem;color:var(--brown-deep);
+  font-size:1.15rem;color:var(--brown-deep);
   margin-bottom:10px;position:relative;z-index:1;
+  font-weight: 700;
 }
 .p-desc{
-  font-size:.82rem;color:var(--txt2);
+  font-size:.88rem;color:var(--txt2);
   line-height:1.65;position:relative;z-index:1;
 }
 
@@ -379,7 +388,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .ft-brand p{
-  font-size:.84rem;color:rgba(255,255,255,.52);
+  font-size:.88rem;color:rgba(255,255,255,.52);
   line-height:1.72;margin:12px 0 22px;
 }
 .socials{display:flex;gap:8px}
@@ -392,21 +401,21 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .soc:hover{border-color:var(--terra-lt);color:var(--terra-lt)}
 .ft-col-hd{
-  font-size:.65rem;font-weight:700;letter-spacing:.18em;
+  font-size:.68rem;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:rgba(255,255,255,.35);
   margin-bottom:16px;
 }
 .ft-links{list-style:none;display:flex;flex-direction:column;gap:9px}
 .ft-links a{
   color:rgba(255,255,255,.6);text-decoration:none;
-  font-size:.84rem;transition:color .2s;
+  font-size:.88rem;transition:color .2s;
 }
 .ft-links a:hover{color:var(--terra-lt)}
 .footer-bot{
   padding-top:24px;
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:12px;
-  font-size:.76rem;color:rgba(255,255,255,.3);
+  font-size:.8rem;color:rgba(255,255,255,.3);
 }
 
 /* ===== GALLERY PAGE ===== */
@@ -417,8 +426,9 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .detail-wrap{padding:44px 64px 100px}
 .breadcrumb{
   display:flex;align-items:center;gap:7px;
-  font-size:.82rem;color:var(--txt2);
+  font-size:.88rem;color:var(--txt2);
   margin-bottom:40px;flex-wrap:wrap;
+  font-weight: 500;
 }
 .breadcrumb span{cursor:pointer;transition:color .2s}
 .breadcrumb span:hover,.breadcrumb span.current{color:var(--terra)}
@@ -443,14 +453,15 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .thumb.active,
 .thumb:hover{border-color:var(--terra);opacity:1}
 .d-cat{
-  font-size:.68rem;font-weight:700;letter-spacing:.16em;
+  font-size:.72rem;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--terra);
   margin-bottom:10px;
 }
 .d-title{
   font-family:'Playfair Display',serif;
-  font-size:2.1rem;color:var(--brown-deep);
+  font-size:2.3rem;color:var(--brown-deep); /* Larger header fonts */
   line-height:1.2;margin-bottom:14px;
+  font-weight: 700;
 }
 .d-rating{
   display:flex;align-items:center;gap:8px;
@@ -464,33 +475,16 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .d-price{
   font-family:'Playfair Display',serif;
-  font-size:2rem;font-weight:600;color:var(--terra);
+  font-size:2.2rem;font-weight:700;color:var(--terra); /* Bold and premium visual pricing */
 }
-.d-price-note{font-size:.78rem;color:var(--txt2)}
+.d-price-note{font-size:.82rem;color:var(--txt2);font-weight: 500;}
 .d-desc{
-  font-size:.93rem;color:var(--txt2);
+  font-size:.96rem;color:var(--txt2);
   line-height:1.78;margin-bottom:26px;
-}
-.size-lbl{
-  font-size:.75rem;font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--brown-mid);
-  margin-bottom:9px;
-}
-.size-opts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
-.sz-btn{
-  padding:8px 16px;
-  border:1.5px solid var(--border);
-  background:#fff;color:var(--txt);
-  font-size:.83rem;border-radius:3px;
-  transition:all .2s;
-}
-.sz-btn:hover,.sz-btn.active{
-  border-color:var(--terra);color:var(--terra);
-  background:rgba(184,85,48,.05);
 }
 
 .qty-lbl{
-  font-size:.75rem;font-weight:700;letter-spacing:.1em;
+  font-size:.78rem;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;color:var(--brown-mid);
   margin-bottom:9px;
 }
@@ -512,7 +506,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   width:60px;height:38px;
   text-align:center;
   font-size:1rem;
-  font-weight:600;
+  font-weight:700;
   color:var(--txt);
   border:1.5px solid var(--border);
   border-radius:3px;
@@ -523,7 +517,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   width:100%;
   background:var(--terra);color:#fff;border:none;
   padding:17px 24px;
-  font-size:.95rem;font-weight:700;letter-spacing:.1em;
+  font-size:.98rem;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;border-radius:5px;
   display:flex;align-items:center;justify-content:center;gap:10px;
   transition:all .3s;
@@ -543,7 +537,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .d-feat{
   display:flex;align-items:center;gap:7px;
-  font-size:.83rem;color:var(--txt2);
+  font-size:.88rem;color:var(--txt2);
 }
 .d-feat span{color:var(--sage);font-weight:700}
 
@@ -557,7 +551,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .rev-hdr-title{
   font-family:'Playfair Display',serif;
-  font-size:1.75rem;color:var(--brown-deep);
+  font-size:1.85rem;color:var(--brown-deep);
+  font-weight: 700;
 }
 .rev-summary{display:flex;align-items:center;gap:12px}
 .big-num{
@@ -585,11 +580,11 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   font-size:.9rem;font-weight:700;color:var(--terra);
   flex-shrink:0;
 }
-.rev-name{font-weight:600;font-size:.88rem;color:var(--brown-deep)}
-.rev-date{font-size:.72rem;color:var(--txt2);margin-top:2px}
+.rev-name{font-weight:600;font-size:.92rem;color:var(--brown-deep)}
+.rev-date{font-size:.76rem;color:var(--txt2);margin-top:2px}
 .rev-stars-sm{color:var(--gold);font-size:.88rem}
 .rev-text{
-  font-size:.88rem;color:var(--txt2);line-height:1.72;
+  font-size:.92rem;color:var(--txt2);line-height:1.72;
 }
 .rev-photo{
   width:96px;height:96px;object-fit:cover;
@@ -599,7 +594,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .rev-photo:hover{opacity:.85;transform:scale(1.02)}
 .verified{
   display:inline-flex;align-items:center;gap:4px;
-  font-size:.68rem;font-weight:700;
+  font-size:.72rem;font-weight:700;
   color:var(--sage);margin-top:8px;
 }
 
@@ -630,6 +625,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .cart-hdr-title{
   font-family:'Playfair Display',serif;
   font-size:1.35rem;color:var(--brown-deep);
+  font-weight: 700;
 }
 .cart-close{
   background:none;border:none;
@@ -649,8 +645,9 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .cart-empty-state p:first-of-type{
   font-family:'Playfair Display',serif;
   font-size:1.1rem;color:var(--brown-deep);margin-bottom:6px;
+  font-weight: 600;
 }
-.cart-empty-state p:last-of-type{font-size:.83rem}
+.cart-empty-state p:last-of-type{font-size:.88rem}
 .c-item{
   display:flex;gap:14px;
   padding:14px 0;
@@ -663,10 +660,11 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .c-item-info{flex:1}
 .c-item-name{
   font-family:'Playfair Display',serif;
-  font-size:.92rem;color:var(--brown-deep);margin-bottom:4px;
+  font-size:.96rem;color:var(--brown-deep);margin-bottom:4px;
+  font-weight: 600;
 }
-.c-item-sz{font-size:.74rem;color:var(--txt2);margin-bottom:6px}
-.c-item-price{font-weight:700;color:var(--terra);font-size:.92rem}
+.c-item-sz{font-size:.78rem;color:var(--txt2);margin-bottom:6px}
+.c-item-price{font-weight:700;color:var(--terra);font-size:.96rem}
 .c-item-rm{
   background:none;border:none;
   font-size:1.2rem;color:var(--txt2);
@@ -686,7 +684,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   flex:1;padding:10px 14px;
   border:1.5px solid var(--border);
   border-radius:4px;font-family:'Jost',sans-serif;
-  font-size:.85rem;color:var(--txt);
+  font-size:.88rem;color:var(--txt);
   text-transform:uppercase;
 }
 #promoInput:focus {
@@ -694,7 +692,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .promo-apply-btn {
   background:var(--brown-deep);color:#fff;border:none;
-  padding:0 18px;font-size:.78rem;font-weight:700;
+  padding:0 18px;font-size:.82rem;font-weight:700;
   text-transform:uppercase;letter-spacing:.05em;
   border-radius:4px;transition:all .2s;
 }
@@ -702,7 +700,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   background:var(--terra);
 }
 .promo-msg {
-  font-size:.78rem;font-weight:500;margin-bottom:12px;display:none;
+  font-size:.82rem;font-weight:600;margin-bottom:12px;display:none;
 }
 .promo-msg.success { color:var(--sage); display:block; }
 .promo-msg.error { color:var(--terra); display:block; }
@@ -711,14 +709,14 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   display:flex;justify-content:space-between;align-items:center;
   margin-bottom:14px;
 }
-.cart-total-lbl{font-weight:500;color:var(--txt2);font-size:.9rem}
+.cart-total-lbl{font-weight:600;color:var(--txt2);font-size:.95rem}
 .cart-total-amt{
   font-family:'Playfair Display',serif;
-  font-size:1.45rem;color:var(--brown-deep);font-weight:600;
+  font-size:1.45rem;color:var(--brown-deep);font-weight:700;
 }
 .buy-now-btn{
   width:100%;background:var(--terra);color:#fff;border:none;
-  padding:17px;font-size:.98rem;font-weight:700;
+  padding:17px;font-size:1rem;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;
   border-radius:5px;transition:all .3s;
 }
@@ -763,7 +761,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .chk-hdr-title {
   font-family:'Playfair Display',serif;
-  font-size:1.25rem;font-weight:600;
+  font-size:1.3rem;font-weight:700; /* Redesigned for visual visibility */
   color:var(--brown-deep);
   display:flex;align-items:center;gap:8px;
 }
@@ -784,26 +782,27 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 /* Form Fields Styling */
 .chk-section-title {
   font-family:'Playfair Display',serif;
-  font-size:1rem; font-weight:600;
+  font-size:1.1rem; font-weight:700; /* Enhanced section visibility */
   color:var(--terra); margin-bottom:16px;
   border-bottom:1.5px solid var(--cream-dk);
   padding-bottom:6px;
 }
 .chk-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
-.chk-field { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.chk-field { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; } /* Fixed selector overriding display:none rules */
 .chk-field.no-margin { margin-bottom:0; }
 .chk-row .chk-field { margin-bottom:0; }
 .chk-label {
-  font-size:.78rem; font-weight:600;
+  font-size:.82rem; font-weight:700; /* Bolder structural labels */
   letter-spacing:.05em; text-transform:uppercase;
   color:var(--brown-mid);
 }
 .chk-input, .chk-select, .chk-textarea {
-  width:100%; padding:11px 14px;
+  width:100%; padding:12px 14px;
   background:#fff; border:1.5px solid var(--border);
   border-radius:4px; font-family:'Jost',sans-serif;
-  font-size:.9rem; color:var(--txt);
+  font-size:.95rem; color:var(--txt); /* Prominent layout visibility input sizing */
   transition:border-color .2s, box-shadow .2s;
+  font-weight: 500;
 }
 .chk-input:focus, .chk-select:focus, .chk-textarea:focus {
   outline:none; border-color:var(--terra);
@@ -817,10 +816,10 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .card-input-wrap .chk-input { padding-right:110px; }
 .card-logos {
   position:absolute; right:12px;
-  display:flex; gap:4px; align-items:center;
+  display:flex; gap:6px; align-items:center;
   pointer-events:none;
 }
-.card-logos svg { width:22px; height:15px; opacity:0.8; }
+.card-logos svg, .card-logos img { width:24px; height:15px; opacity:0.8; object-fit: contain; }
 
 /* Loading State View */
 .chk-loading-container {
@@ -838,10 +837,11 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 @keyframes chkSpin { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
 .chk-loading-title {
   font-family:'Playfair Display',serif;
-  font-size:1.3rem; color:var(--brown-deep);
+  font-size:1.4rem; color:var(--brown-deep);
   margin-bottom:10px;
+  font-weight: 700;
 }
-.chk-loading-sub { font-size:.85rem; color:var(--txt2); }
+.chk-loading-sub { font-size:.9rem; color:var(--txt2); line-height:1.6; }
 
 /* Payment Failed Warning State View */
 .chk-alert-view {
@@ -863,7 +863,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .chk-alert-title {
   font-family:'Playfair Display',serif;
-  font-size:1.4rem; color:var(--terra);
+  font-size:1.5rem; color:var(--terra);
   font-weight:700; margin-bottom:8px;
 }
 
@@ -873,18 +873,19 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   padding:20px 10px; text-align:center;
 }
 .chk-failed-badge {
-  font-size:.7rem; font-weight:700; letter-spacing:.12em;
+  font-size:.75rem; font-weight:700; letter-spacing:.12em;
   text-transform:uppercase; color:#fff;
   background:var(--terra); padding:5px 12px;
   border-radius:4px; margin-bottom:16px;
 }
 .chk-failed-title {
   font-family:'Playfair Display',serif;
-  font-size:1.6rem; color:var(--brown-deep);
+  font-size:1.75rem; color:var(--brown-deep);
   margin-bottom:12px;
+  font-weight: 700;
 }
 .chk-failed-desc {
-  font-size:.9rem; color:var(--txt2);
+  font-size:.95rem; color:var(--txt2);
   line-height:1.65; max-width:440px;
   margin-bottom:28px;
 }
@@ -893,7 +894,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .chk-manual-btn {
   width:100%; max-width:320px;
   background:var(--terra); color:#fff; border:none;
-  padding:16px 24px; font-size:.92rem; font-weight:700;
+  padding:16px 24px; font-size:.95rem; font-weight:700;
   letter-spacing:.08em; text-transform:uppercase;
   border-radius:5px; transition:all .3s;
   display:flex; align-items:center; justify-content:center; gap:10px;
@@ -913,7 +914,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   background:#fff; border:1.5px solid var(--border);
   padding:12px 20px; border-radius:5px;
   color:var(--brown-deep); text-decoration:none;
-  font-size:.88rem; font-weight:500;
+  font-size:.92rem; font-weight:600; /* Enhanced weights */
   transition:all .25s;
 }
 .chk-social-btn:hover {
@@ -926,7 +927,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 /* Form Submit Button */
 .chk-pay-btn {
   width:100%; background:var(--terra); color:#fff; border:none;
-  padding:16px; font-size:.95rem; font-weight:700;
+  padding:16px; font-size:1rem; font-weight:700;
   letter-spacing:.1em; text-transform:uppercase;
   border-radius:5px; transition:all .3s; margin-top:8px;
   display:flex; align-items:center; justify-content:center; gap:10px;
@@ -953,8 +954,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .toast.show{transform:translateY(0);opacity:1;pointer-events:all}
 .toast-icon{font-size:1.6rem;flex-shrink:0}
 .toast-body{flex:1}
-.toast-ttl{font-weight:700;font-size:.88rem;margin-bottom:2px}
-.toast-sub{font-size:.75rem;color:rgba(255,255,255,.65)}
+.toast-ttl{font-weight:700;font-size:.92rem;margin-bottom:2px}
+.toast-sub{font-size:.78rem;color:rgba(255,255,255,.65)}
 .toast-x{
   background:none;border:none;color:rgba(255,255,255,.5);
   font-size:1.1rem;padding:2px;flex-shrink:0;
@@ -1010,10 +1011,11 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .faq-q:hover .faq-q-text{color:var(--terra)}
 .faq-q-text{
   font-family:'Playfair Display',serif;
-  font-size:1.08rem;color:var(--brown-deep);
+  font-size:1.15rem;color:var(--brown-deep);
   line-height:1.35;
   transition:color .2s;
   flex:1;
+  font-weight: 700;
 }
 .faq-icon{
   width:32px;height:32px;border-radius:50%;
@@ -1039,7 +1041,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   padding:0 4px 24px;
 }
 .faq-body p{
-  font-size:.93rem;color:var(--txt2);
+  font-size:.95rem;color:var(--txt2);
   line-height:1.78;
 }
 .faq-body strong{color:var(--brown-deep)}
@@ -1104,7 +1106,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
 <nav class="nav" id="mainNav">
   <div class="nav-logo" onclick="gotoPage('home')">
     <div class="logo-mark">🐾</div>
@@ -1135,10 +1136,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </nav>
 
-<!-- ===== PAGE: HOME ===== -->
 <div class="page active" id="page-home">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
       <div class="hero-tag">Handcrafted with love</div>
@@ -1165,15 +1164,13 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
-  <!-- STATS -->
   <div class="stats-bar">
-    <div class="stat"><div class="stat-n">2,400+</div><div class="stat-l">Portraits Delivered</div></div>
+    <div class="stat"><div class="stat-n">600+</div><div class="stat-l">Portraits Delivered</div></div>
     <div class="stat"><div class="stat-n">4.9 ★</div><div class="stat-l">Average Rating</div></div>
-    <div class="stat"><div class="stat-n">48</div><div class="stat-l">Countries Served</div></div>
-    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Satisfaction Guarantee</div></div>
+    <div class="stat"><div class="stat-n">12</div><div class="stat-l">Countries Served</div></div>
+    <div class="stat"><div class="stat-n">99.99%</div><div class="stat-l">Satisfaction Guarantee</div></div>
   </div>
 
-  <!-- FEATURED GALLERY -->
   <section class="section">
     <div class="section-hd">
       <div class="eyebrow">Our Collection</div>
@@ -1186,12 +1183,10 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
-  <!-- MARQUEE -->
   <div class="strip">
     <div class="strip-inner" id="marqueeInner"></div>
   </div>
 
-  <!-- ABOUT -->
   <section class="section section-alt" id="about">
     <div class="about-wrap">
       <div class="about-visual">
@@ -1215,7 +1210,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section class="section" id="process">
     <div class="section-hd">
       <div class="eyebrow">Simple Process</div>
@@ -1246,7 +1240,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="section section-alt" id="faq">
     <div class="section-hd">
       <div class="eyebrow">Got Questions?</div>
@@ -1354,7 +1347,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
         </div>
       </div>
 
-      <!-- NEW FAQ 1: REAL FUR INTEGRATION (Referencing "My Woolever Friend: Handmade Artistic Pet Replicas") -->
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Can you incorporate my pet's actual fur, whiskers, or ashes into the wool portrait?</span>
@@ -1367,7 +1359,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
         </div>
       </div>
 
-      <!-- NEW FAQ 2: PACKAGING / MAILING INSTRUCTIONS -->
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">How should I package and mail my pet's keepsake items to you?</span>
@@ -1383,7 +1374,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer id="contact">
     <div class="footer-top">
       <div class="ft-brand">
@@ -1437,7 +1427,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </footer>
 </div>
 
-<!-- ===== PAGE: GALLERY ===== -->
 <div class="page" id="page-gallery">
   <div class="gallery-page">
     <div class="section-hd">
@@ -1449,7 +1438,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </div>
 
-<!-- ===== PAGE: DETAIL ===== -->
 <div class="page" id="page-detail">
   <div class="detail-wrap">
     <div class="breadcrumb">
@@ -1461,13 +1449,11 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
 
     <div class="detail-grid">
-      <!-- Images -->
       <div class="detail-imgs">
         <img id="mainImg" src="" alt="" class="main-img" loading="lazy">
         <div class="thumbs" id="thumbsRow"></div>
       </div>
 
-      <!-- Info -->
       <div class="detail-info">
         <div class="d-cat" id="dCat"></div>
         <h1 class="d-title" id="dTitle"></h1>
@@ -1477,10 +1463,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           <div class="d-price-note">· Free worldwide shipping</div>
         </div>
         <p class="d-desc" id="dDesc"></p>
-        <div class="size-lbl">Select Size</div>
-        <div class="size-opts" id="sizeOpts"></div>
         
-        <!-- Quantity Selector inside Detail Selection -->
         <div class="qty-lbl">Quantity</div>
         <div class="qty-opts">
           <button type="button" class="qty-btn" onclick="adjustDetailQty(-1)">&minus;</button>
@@ -1507,7 +1490,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
       </div>
     </div>
 
-    <!-- Reviews -->
     <div class="reviews-wrap">
       <div class="rev-hdr">
         <div class="rev-hdr-title" id="revTitle">Customer Reviews</div>
@@ -1524,10 +1506,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </div>
 
-<!-- ===== CART OVERLAY ===== -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
-<!-- ===== CART PANEL ===== -->
 <div class="cart-panel" id="cartPanel" onclick="event.stopPropagation()">
   <div class="cart-hdr">
     <div class="cart-hdr-title">Your Cart 🧶</div>
@@ -1542,7 +1522,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
   <div class="cart-ftr">
     
-    <!-- Promo Code Entry Box -->
     <div class="promo-box">
       <input type="text" id="promoInput" placeholder="ENTER PROMO CODE" oninput="handlePromoInput(this)">
       <button class="promo-apply-btn" onclick="applyPromo()">Apply</button>
@@ -1553,15 +1532,13 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
       <span class="cart-total-lbl">Order Total</span>
       <span class="cart-total-amt" id="cartTotal">$0.00</span>
     </div>
-    <button class="buy-now-btn" onclick="openCheckout()">Buy Now!! 🐾</button>
+    <button class="buy-now-btn" onclick="openCheckout()">Buy Now!!</button>
   </div>
 </div>
 
-<!-- ===== SECURE CHECKOUT OVERLAY / MODAL ===== -->
 <div class="checkout-overlay" id="checkoutOverlay" onclick="closeCheckout()">
   <div class="checkout-modal" id="checkoutModal" onclick="event.stopPropagation()">
     
-    <!-- Modal Header -->
     <div class="chk-hdr">
       <div class="chk-hdr-title">
         Secure Checkout
@@ -1572,7 +1549,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </svg>
         </span>
       </div>
-      <!-- Display total billing top-right side -->
       <div style="margin-left: auto; margin-right: 16px; display: flex; align-items: center; gap: 6px;">
         <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 600; color: var(--txt2);">Total due:</span>
         <span id="chkHeaderTotal" style="font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--terra);">--</span>
@@ -1580,18 +1556,14 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
       <button class="chk-close-btn" onclick="closeCheckout()">×</button>
     </div>
 
-    <!-- Modal Content Body -->
     <div class="chk-body">
       
-      <!-- Slot Warning Badge -->
       <div id="chkSlotsBanner" style="background:rgba(184,85,48,.08); border-left:4px solid var(--terra); padding:10px 14px; font-size:0.8rem; font-weight:600; color:var(--brown-mid); margin-bottom:16px; border-radius:4px; display:flex; align-items:center; gap:8px;">
         <span style="font-size:1rem;">⚠️</span>
         <span>Hurry! Only <span id="chkSlotsCount">3</span> customization slots remaining today.</span>
       </div>
 
-      <!-- VIEW 1: Form Input Screen -->
       <form class="chk-view active" id="chkFormView" onsubmit="handleCheckoutSubmit(event)">
-        <!-- Section: Customer Details -->
         <div class="chk-section-title">Customer Details</div>
         
         <div class="chk-field">
@@ -1604,8 +1576,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             <label class="chk-label" for="chkPhone">Phone Number</label>
             <div class="phone-group">
               <select id="chkPhoneCode" name="phone_code" class="chk-select phone-code">
-                <!-- Dynamically populated alphabetically -->
-              </select>
+                </select>
               <input type="tel" id="chkPhone" name="phone" class="chk-input" placeholder="201 555 0123" required>
             </div>
           </div>
@@ -1615,7 +1586,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </div>
         </div>
 
-        <!-- Section: Billing Address -->
         <div class="chk-section-title" style="margin-top: 8px;">Billing Address</div>
         
         <div class="chk-row">
@@ -1623,8 +1593,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             <label class="chk-label" for="chkCountry">Country</label>
             <select id="chkCountry" name="country" class="chk-select" onchange="handleCountryChange(this.value)" required>
               <option value="" disabled selected>Select Country</option>
-              <!-- Dynamically populated alphabetically -->
-            </select>
+              </select>
           </div>
           <div class="chk-field no-margin">
             <label class="chk-label" for="chkState">State / Region</label>
@@ -1644,7 +1613,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </div>
         </div>
 
-        <!-- Section: Card Details -->
         <div class="chk-section-title" style="margin-top: 16px;">Card Information</div>
 
         <div class="chk-field">
@@ -1652,8 +1620,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           <div class="card-input-wrap">
             <input type="text" id="chkCardNumber" name="card_number" class="chk-input" placeholder="4111 2222 3333 4444" minlength="19" maxlength="19" required>
             <div class="card-logos">
-              <!-- Inline SVGs for major debit card brands -->
-              <svg id="logo-visa" viewBox="0 0 48 48"><path fill="#1565C0" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FFF" d="M18.82 33.34l2.84-17.61h4.53l-2.84 17.61zm16.53-17.21c-.84-.33-2.16-.68-3.79-.68-3.74 0-6.38 1.91-6.4 4.63-.03 2.02 1.89 3.14 3.33 3.82 1.48.7 1.98 1.15 1.97 1.77-.02.96-1.19 1.4-2.29 1.4-1.52 0-2.33-.22-3.56-.74l-.49-.23-.53 3.14c.89.39 2.53.73 4.23.75 3.96 0 6.54-1.88 6.58-4.79.03-1.6-1-.28-.51-2.45c-2.02-.92-3.23-1.39-3.21-2.25.01-.76.88-1.55 2.77-1.55 1.05-.02 1.83.21 2.42.45l.29.13.43-2.91c-.49-.17-1.28-.27-1.99-.27m8.49-.4h-3.48c-1.08 0-1.89.31-2.36 1.39L32.4 33.34h4.75l.95-2.5h5.79l.54 2.5h4.19zm-5.46 9.61l1.83-4.83 1.05 4.83zm-27.42-9.61l-4.22 12c-.44 1.34-1.46 2.4-2.84 2.4H1.5l.08-.34 5.37-11.66c-.33-.87-.85-1.51-1.63-1.92L1.8 15.73h7.62c1.01 0 1.91.68 2.12 1.66l1.6 7.64 3.68-9.3z"/></svg>
+              <!-- Replaced old vector path with premium official Wikipedia/Wikimedia CDN URL -->
+              <img id="logo-visa" src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa">
               <svg id="logo-mastercard" viewBox="0 0 48 48"><path fill="#37474F" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FF9800" d="M30 24c0 4.14-2.24 7.76-5.55 9.71C22.25 35.53 19.34 36 16.5 36c-6.63 0-12-5.37-12-12s5.37-12 12-12c2.84 0 5.75.47 7.95 2.29C27.76 16.24 30 19.86 30 24z"/><path fill="#FF3D00" d="M43.5 24c0 6.63-5.37 12-12 12-2.84 0-5.75-.47-7.95-2.29C20.24 31.76 18 28.14 18 24s2.24-7.76 5.55-9.71C25.75 12.47 28.66 12 31.5 12c6.63 0 12 5.37 12 12z"/><path fill="#FFB300" d="M25 15.5c2.05 1.95 3 4.6 3 8.5s-.95 6.55-3 8.5c-2.05-1.95-3-4.6-3-8.5s.95-6.55 3-8.5z"/></svg>
               <svg id="logo-amex" viewBox="0 0 48 48"><path fill="#1976D2" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FFF" d="M12.24 16.14h3.76L19 23.94l3-7.8h3.75l-4.82 12h-3.92zm17.06.01l-1.98 5-1.94-5H21.5l3.86 9h3.77l5.24-12.02h-5.07zm-14.86 9l-.88-2.24h-3l-.86 2.24H6l4.28-10.22h4l4.26 10.22zm1.63-5l.89 2.24h2.15l.87-2.24H35.4c1.1 0 2-.9 2-2s-.9-2-2-2zM33 18.14h2.4c.55 0 1 .45 1 1s-.45 1-1 1H33v-2zM10.37 21h3l-.86 2.24h-1.28zm21.5-2.86h2.15c.55 0 1 .45 1 1s-.45 1-1 1H31.87v-2z"/></svg>
             </div>
@@ -1665,12 +1633,10 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             <label class="chk-label">Expiry Date</label>
             <div style="display:flex; gap:8px;">
               <select id="chkExpiryMonth" name="expiry_month" class="chk-select" required style="flex:1;">
-                <!-- Populated dynamically via script -->
-              </select>
+                </select>
               <select id="chkExpiryYear" name="expiry_year" class="chk-select" onchange="handleExpiryYearChange()" required style="flex:1;">
                 <option value="" disabled selected>YY</option>
-                <!-- Populated dynamically via script 26-36 -->
-              </select>
+                </select>
             </div>
           </div>
           <div class="chk-field no-margin">
@@ -1679,13 +1645,11 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </div>
         </div>
 
-        <!-- Submit Button -->
         <button type="submit" class="chk-pay-btn" style="margin-top:24px;">
           Pay Now!!
         </button>
       </form>
 
-      <!-- VIEW 2: Secure Processing / Loading (6 seconds delay) -->
       <div class="chk-view" id="chkLoadingView">
         <div class="chk-loading-container">
           <div class="chk-spinner"></div>
@@ -1694,7 +1658,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
         </div>
       </div>
 
-      <!-- VIEW 3: Instant Error Sign Alert ("payment failed") -->
       <div class="chk-view" id="chkAlertView">
         <div class="chk-alert-view">
           <div class="chk-alert-icon">❌</div>
@@ -1703,7 +1666,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
         </div>
       </div>
 
-      <!-- VIEW 4: Core Failure State & Manual Buy Fallbacks -->
       <div class="chk-view" id="chkFailureView">
         <div class="chk-failed-view">
           <div class="chk-failed-badge">Transaction Declined</div>
@@ -1712,31 +1674,26 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             We are sorry, but your transaction could not be processed. To complete your order immediately without further card issues, please complete your purchase using one of our manual channels.
           </p>
 
-          <!-- Buy Manually Mailto Button -->
           <a id="chkMailToBtn" href="mailto:gonapyoung@gmail.com" class="chk-manual-btn">
             Buy manually
           </a>
 
-          <!-- Socials Platform Direct Contact Grid -->
           <div class="chk-social-grid">
             <a id="chkMailToBtn2" href="mailto:gonapyoung@gmail.com" class="chk-social-btn">
-              <!-- Inline Email Envelope SVG -->
               <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
               Contact Support via Email
             </a>
             
-            <a href="https://wa.me/message/simulated" target="_blank" class="chk-social-btn">
-              <!-- Inline WhatsApp SVG -->
+            <a id="chkWaBtn" href="https://wa.me/12894474993" target="_blank" class="chk-social-btn">
               <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12.012 2C6.5 2 2.012 6.5 2.012 12c0 1.912.525 3.712 1.488 5.275L2.012 22l4.9-1.287c1.475.8 3.163 1.287 4.975 1.287 5.513 0 10.013-4.5 10.013-10S17.525 2 12.012 2zm6.275 14.325c-.263.738-1.5 1.35-2.062 1.413-.5.062-1.15.112-3.413-.825-2.887-1.187-4.737-4.137-4.887-4.325-.138-.2-1.138-1.525-1.138-2.913 0-1.387.725-2.062.987-2.338.263-.262.575-.325.775-.325h.55c.163 0 .375-.013.575.462.213.513.725 1.763.788 1.9.063.137.1.3.012.475-.1.175-.15.3-.3.475-.15.175-.313.388-.45.525-.15.15-.313.313-.125.638.188.313.825 1.362 1.775 2.213.95.85 1.75 1.112 2.062 1.25.313.137.5.112.688-.1.188-.212.825-.963 1.05-1.288.225-.325.45-.275.75-.162.3.112 1.913.9 2.238 1.063.325.162.538.237.613.375.075.137.075.8-.188 1.537z"/>
               </svg>
               Chat via WhatsApp
             </a>
             
-            <a href="https://t.me/simulated_handler" target="_blank" class="chk-social-btn">
-              <!-- Inline Telegram SVG -->
+            <a id="chkTgBtn" href="https://t.me/tiketify" target="_blank" class="chk-social-btn">
               <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.73 7.58-3.25 3.61-1.48 4.36-1.74 4.85-1.75.11 0 .35.03.5.16.13.12.17.29.18.42 0 .03-.01.11-.02.14z"/>
               </svg>
@@ -1751,7 +1708,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </div>
 
-<!-- ===== TOAST ===== -->
 <div class="toast" id="toast">
   <div class="toast-icon">🧶</div>
   <div class="toast-body">
@@ -1761,7 +1717,6 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   <button class="toast-x" onclick="hideToast()">×</button>
 </div>
 
-<!-- ===== LIGHTBOX ===== -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lb-close" onclick="closeLightbox()">×</button>
   <img class="lb-img" id="lbImg" src="" alt="Review photo">
@@ -1771,7 +1726,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 /* ========== DATA ========== */
 const PRODUCTS = [
   {
-    id:1, name:"Golden Retriever Portrait", cat:"Dog", price:89,
+    id:1, name:"Framed Pet Potrait-Dog", cat:"Dog", price:300,
     badge:"Bestseller",
     img:"DOG.jpg",
     thumbs:[
@@ -1779,11 +1734,11 @@ const PRODUCTS = [
       "DOG1.jpg",
       "DOG2.jpg"
     ],
-    desc:"Capture the warm, golden spirit of your beloved retriever in a stunning hand-felted portrait. Each Golden Retriever Portrait is needle-felted by hand using layers of soft merino wool, expertly blended to recreate your dog's unique coat texture, soulful eyes, and that unmistakable joyful expression. Whether curled up or bounding through a field, we bring your golden's personality to life in breathtaking detail.",
+    desc:"<strong><em>Turnaround Time is 1-2 months</em></strong><br><br>• Expertly crafted through the needle felting technique for a unique, custom-made design<br>• Made from high-quality, natural Australian Merino Wool for a soft and lifelike feel<br>• Adjustable paws position for a personalized touch<br>• A variety of background and frame colors to suit your style preferences<br>• Each WoolPet Portrait is tailored to resemble your pet, including features such as open mouths with tongues out, birthmarks, spots, and more<br><br><strong>ALL PRICES ARE FOR A SINGLE PET</strong>",
     reviews:[
-      {name:"Emma T.",stars:5,date:"March 2025",text:"I am completely speechless. The portrait of my Golden, Biscuit, arrived this morning and I actually cried. The detail in his fur, his eyes — it's like looking at a photograph but warmer. Absolutely worth every penny.",photo:"DOG4.jpg"},
+      {name:"Emma T.",stars:5,date:"March 2025",text:"We'd ordered Marty's portrait after a health scare, not knowing 3 days later he'd become an angel. We received Marty's portrait on the 4 month anniversary of his passing, and what a breathtaking gift it was to open the box and see his beautiful face. It literally gave us goosebumps and I gasped out loud. His eyes are truly his eyes...the emotion in them is so real. Rina was so patient with me and making changes to ensure Marty's likeness was captured as best as possible. We are so grateful to have this beautiful keepsake of our beloved boy. Thank you so much for sharing your talent.",photo:"DOG4.jpg"},
       {name:"David H.",stars:5,date:"February 2025",text:"Outstanding craftsmanship. I ordered this as a memorial piece for my late golden, Sunny, and it's the most beautiful tribute I could have imagined. The texture of the wool feels incredibly lifelike."},
-      {name:"Priya S.",stars:5,date:"February 2025",text:"My golden's portrait is now the centrepiece of our living room. Every guest who comes over asks about it. I've already ordered one for my sister's dog! The team was incredibly responsive throughout.",photo:"DOG5.jpg"},
+      {name:"Priya S.",stars:5,date:"February 2025",text:"I was contacted several times to make sure that my images were what I wanted and they even gave me a preview of the finished product to see if I wanted anything changed and this Woolever Friend looks just like my sweet dog Angel. She passed away long before digital cameras and I couldn’t be any more pleased with the end result! I wouldn’t change one thing about her portrait and I would recommend Woolever Friends to anyone who wants to memorialize their pet 🥰",photo:"DOG5.jpg"},
       {name:"James O.",stars:4,date:"January 2025",text:"Really lovely piece — the craftsmanship is obvious. Docked one star only because delivery took a little longer than expected, but the result more than made up for it. Would absolutely recommend."},
       {name:"Sofia R.",stars:5,date:"January 2025",text:"Perfect gift for my mum on her birthday. She absolutely sobbed when she opened it — happy tears of course! The portrait captured her Golden's silly, loving personality so well."},
       {name:"Liam B.",stars:5,date:"December 2024",text:"I've seen wool felting before but never at this quality. The layers of colour in the fur are phenomenal. It genuinely looks three-dimensional. Hanging proudly in our hallway now.",photo:"DOG6.jpg"},
@@ -1796,7 +1751,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id:2, name:"Persian Cat Portrait", cat:"Cat", price:89,
+    id:2, name:"Framed Pet Portrait-Cat", cat:"Cat", price:300,
     badge:"Popular",
     img:"CAT.png",
     thumbs:[
@@ -1804,14 +1759,14 @@ const PRODUCTS = [
       "CAT1.jpg",
       "CAT2.jpg"
     ],
-    desc:"Celebrate the regal elegance of your Persian cat with a portrait that honours every wisp of their magnificent coat. Persian Cat Portraits are among our most intricate works — our artisans layer ultra-fine merino fibres to recreate the distinctive long, flowing fur, flattened features, and jewel-like eyes. A timeless piece for a truly timeless cat.",
+    desc:"<strong><em>Turnaround Time is 1-2 months</em></strong><br><br>• Expertly crafted through the needle felting technique for a unique, custom-made design<br>• Made from high-quality, natural Australian Merino Wool for a soft and lifelike feel<br>• Frame dimensions are approximately 18cm x 23cm, providing the perfect display size<br>• Adjustable paws position for a personalized touch<br>• A variety of background and frame colors to suit your style preferences<br>• Each WoolPet Portrait is tailored to resemble your pet, including features such as open mouths with tongues out, birthmarks, spots, and more",
     reviews:[
-      {name:"Amelia F.",stars:5,date:"March 2025",text:"My Persian, Duchess, now has a portrait worthy of her name. The level of detail in her fur is truly extraordinary — you can almost feel how soft it would be. A masterwork.",photo:"CAT3.jpg"},
+      {name:"Amelia F.",stars:5,date:"March 2025",text:"Absolutely phenomenal experience working with Rina and MWF! The essence of my furry friend was captured to such a precise degree, it is uncanny. Completely exceeded my expectations. 5 stars isn’t enough.",photo:"CAT3.jpg"},
       {name:"Sebastian G.",stars:5,date:"March 2025",text:"Ordered for my mum who was devastated after losing her beloved Persian, Snowball. She says it's brought her so much comfort having his portrait to look at every day. Thank you from the bottom of our hearts."},
-      {name:"Yuki T.",stars:5,date:"February 2025",text:"I'm a professional photographer with incredibly high visual standards — and I was blown away. The tonal range achieved with wool is astonishing. Truly museum-quality work.",photo:"CAT4.jpg"},
+      {name:"Yuki T.",stars:5,date:"February 2025",text:"Insane! This is identical to my cat! The eyes are so realistic it looks like they follow you haha.  Highly recommend.  Worth every cent!!!",photo:"CAT4.jpg"},
       {name:"Hannah L.",stars:4,date:"January 2025",text:"Stunning piece. The blue of my cat's eyes is captured perfectly. My one tiny quibble is that the background could have been a little lighter, but I mentioned it and they offered to redo it immediately."},
       {name:"George E.",stars:5,date:"January 2025",text:"Bought as a wedding anniversary gift — my wife collects cat art and she declared this the best piece she owns. Considering what's in her collection, that's high praise indeed!"},
-      {name:"Mei C.",stars:5,date:"December 2024",text:"The fur texture on my silver Persian is absolutely breathtaking. I honestly keep reaching out to touch it expecting to feel fur. Exceptional work.",photo:"CAT5.jpg"},
+      {name:"Mei C.",stars:5,date:"December 2024",text:"I had such a good experience with Woolpet Potrait! The artists were unbelievably patient with my multiple rounds of feedback to make the art look more like my cat Ting. They were patient, persistent and dedicated. Thank you so much for a beautiful statement piece in my house, which I’ll forever remember Ting with. It’s so super realistic that people may think it’s a real cat on the wall!",photo:"CAT5.jpg"},
       {name:"Finn O.",stars:5,date:"November 2024",text:"Very detailed, very lifelike, very beautiful. My cat Mochi seems to recognise himself in it — keeps staring at it! Made me laugh so much and love the portrait even more."},
       {name:"Isla P.",stars:5,date:"November 2024",text:"I've been looking for something special to commemorate my cat's 15th birthday and this was absolutely it. She looks positively queenly in the portrait. Will treasure it forever."},
       {name:"Carlos V.",stars:5,date:"October 2024",text:"Fantastic. Fast communication, easy process, extraordinary result. The portrait arrived in perfect condition, beautifully packaged. Would give 6 stars if I could."},
@@ -1821,7 +1776,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id:3, name:"French Bulldog Portrait", cat:"Dog", price:94,
+    id:3, name:"Full Body Figurine", cat:"Pet", price:450,
     badge:"New",
     img:"FULL.png",
     thumbs:[
@@ -1829,23 +1784,23 @@ const PRODUCTS = [
       "FULL1.jpg",
       "FULL2.jpg"
     ],
-    desc:"French Bulldogs have one of the most iconic and expressive faces in the canine world — those bat ears, the squishy snout, the enormous eyes full of personality. Our French Bulldog Portraits lovingly capture every charming, comical feature of your Frenchie in tactile, handcrafted wool. Perfect for Frenchie owners who want to give their pup the celebrity treatment they clearly believe they deserve.",
+    desc:"<strong><em>Turnaround Time is 1-3 months</em></strong><br><br>• Custom made to order using the technique of needle felting<br>• Made of exclusively natural merino Australian Wool<br>• Dimension: measured on the longest part of body<br>• Each WoolPet Portrait is custom made to match your pet (position, open mouth with tongue outside, add birthmarks and spots, etc)",
     reviews:[
-      {name:"Zoe H.",stars:5,date:"March 2025",text:"OBSESSED with my Frenchie's portrait. Louis looks like a tiny king, exactly as he acts in real life. The bat ears are perfect, the expression is perfect — everything is perfect!",photo:"FULL3.jpg"},
+      {name:"Zoe H.",stars:5,date:"March 2025",text:"Louis looks like a tiny king, exactly as he acts in real life. The bat ears are perfect, the expression is perfect — everything is perfect!",photo:"FULL3.jpg"},
       {name:"Arthur N.",stars:5,date:"February 2025",text:"My partner and I are both architects and we're very picky about art in our home. This portrait is the one piece that every single visitor comments on. The craftsmanship is outstanding."},
-      {name:"Jade K.",stars:5,date:"February 2025",text:"The wrinkles on my Frenchie's face have been recreated in wool with such skill — I genuinely do not understand how it's done. Mochi looks majestic.",photo:"FULL4.jpg"},
+      {name:"Jade K.",stars:5,date:"February 2025",text:"I couldn't express my gratitude to My WoolPet Potrait for bringing my beloved Golden Retriever, Kai back to life.Their work is amazing, and the attention to detail is second to none. Rina and the team were very professional, keeping me updated on the progress of Kai.Thank you so much. I really appreciate your efforts and kindness. Highly recommended, extraordinary quality, kind and warm people.",photo:"FULL4.jpg"},
       {name:"Ryan T.",stars:4,date:"January 2025",text:"Really pleased with the final result. The colour matching for my brindle Frenchie was tricky and they absolutely nailed it. Took the full turnaround time but was worth the wait."},
       {name:"Stephanie M.",stars:5,date:"January 2025",text:"Bought as a gift for my boyfriend whose Frenchie, Gnocchi, recently passed. He was moved to tears — said it was the most thoughtful gift he'd ever received. Can't recommend highly enough."},
-      {name:"Kieran J.",stars:5,date:"December 2024",text:"Absolutely first-rate. The detail work on the short fur and skin folds is remarkable. WoolPet clearly have some enormously talented artists. My Frenchie, Frank, approves.",photo:"FULL5.jpg"},
+      {name:"Kieran J.",stars:5,date:"December 2024",text:"I ordered a miniature replica of my cat after she passed away last May. It arrived at my home yesterday and when I opened the box up I did cry upon seeing her face again. I was a bit nervous ordering because she is completely black which makes her details a bit more difficult to see in pictures. But the team at MWF did an incredible job at capturing my cat's features and even when I had some adjustments made after they sent me the first version, it was quickly done for such a high quality product! Even little details I asked them for were perfectly done (like the shape of her nose and her toenails). I'll forever be grateful to MWF for bringing Zara home again in a way!",photo:"FULL5.jpg"},
       {name:"Eloise B.",stars:5,date:"December 2024",text:"I run a French Bulldog Instagram account with 80k followers and posted this portrait — the response was insane! Everyone wants to know where it came from."},
-      {name:"Noah P.",stars:5,date:"November 2024",text:"Five stars without hesitation. The likeness is extraordinary, the quality is incredible, the framing is beautiful. Everything you could want."},
+      {name:"Noah P.",stars:5,date:"November 2024",text:"Five stars without hesitation. The likeness is extraordinary, the quality is incredible. Everything you could want."},
       {name:"Mia G.",stars:4,date:"November 2024",text:"Wonderful piece of art. The fawn colouring came out beautifully — warm and accurate. Minor point: one ear looked slightly off in the preview, but they fixed it perfectly."},
-      {name:"Felix W.",stars:5,date:"October 2024",text:"I've been buying art for 20 years and this is one of the most technically impressive pieces I own. The medium — wool — makes it unlike anything else.",photo:"FULL6.jpg"},
-      {name:"Aria C.",stars:5,date:"October 2024",text:"My Frenchie portrait lives in my office and has become an absolute conversation piece. Clients love it. I've even had people ask for the artist's contact details!"}
+      {name:"Felix W.",stars:5,date:"October 2024",text:"I've been buying art for 20 years and this is one of the most technically impressive pieces I own. The medium wool makes it unlike anything else.",photo:"FULL6.jpg"},
+      {name:"Aria C.",stars:5,date:"October 2024",text:"Perfect. Just perfect. I get blown away by Tina's talent in matching fur. This adorable little figure only needed minor revisions, a little more dark fur before it became her. And the bonus display case! I wasn't expecting it but very happy to receive it. Worth every penny. Seeing the little figure makes me feel more happy than sad. It's like a cute little homage and I find it easier to talk to the little figure rather than the portrait. Not to say the portrait isn't incredible, it's just closer to Lady's size which can bring mixed emotions. I just wish I could carry the little Mini Lady around with me but I'm so scared of damaging it."}
     ]
   },
   {
-    id:4, name:"Maine Coon Portrait", cat:"Cat", price:94,
+    id:4, name:"Mini Full Body Figurine", cat:"Pet", price:250,
     badge:null,
     img:"MINI.jpg",
     thumbs:[
@@ -1853,30 +1808,30 @@ const PRODUCTS = [
       "MINI1.jpg",
       "MINI2.jpg"
     ],
-    desc:"The Maine Coon — wild, majestic, and utterly enormous — deserves a portrait as dramatic as their personality. Our Maine Coon Portraits celebrate every tuft, ruff, and flowing plume of this magnificent breed. We work in layers of premium merino to build up the extraordinary volume and texture of the Maine Coon coat, ensuring your gentle giant is immortalised in all their glory.",
+    desc:"<strong><em>Turnaround Time is 1-2 months</em></strong><br><br>• Custom made to order using the technique of needle felting<br>• Made of exclusively natural merino Australian Wool<br>• Each WoolPet Portrait is custom made to match your pet (open mouth with tongue outside, add birthmarks and spots, etc.)",
     reviews:[
-      {name:"Isabella R.",stars:5,date:"February 2025",text:"My Maine Coon, Thor, looks absolutely regal in his portrait — as he should. The volume and texture of his mane has been recreated with such artistry. I'm completely awestruck.",photo:"MINI3.jpg"},
+      {name:"Isabella R.",stars:5,date:"February 2025",text:"I had a custom mini made of my dog that passed away last year. I’m very happy with how it came out, and the attention to detail. This is a perfect way for me to remember him by. Thank you!",photo:"MINI3.jpg"},
       {name:"Connor S.",stars:5,date:"February 2025",text:"The ear tufts! The lynx tips! Every characteristic feature of my Maine Coon is captured perfectly. This is the work of someone who clearly loves cats and has extraordinary skill with wool."},
-      {name:"Vivienne O.",stars:5,date:"January 2025",text:"I have 11 cats (yes, really) and three of them now have portraits from WoolPet. The quality is consistently astonishing. My Maine Coon's portrait is the crown jewel of my collection.",photo:"MINI4.jpg"},
+      {name:"Vivienne O.",stars:5,date:"January 2025",text:"When my little man passed away I immediately knew I would ask you guys to make me a mini full version. It was worth the wait. It's perfect just like he was.",photo:"MINI4.jpg"},
       {name:"Hugo T.",stars:4,date:"January 2025",text:"Really excellent work. The scale of the portrait makes it quite impactful on the wall. Colouring is spot-on for my tabby Maine Coon. Very pleased with this purchase."},
       {name:"Scarlett N.",stars:5,date:"December 2024",text:"WoolPet captured my gentle giant, Mufasa, with such tenderness. Even his slightly haughty expression came through! I genuinely had to double-check it wasn't a photograph at first glance."},
       {name:"Declan F.",stars:5,date:"December 2024",text:"Bought for my wife as a surprise Christmas gift. She came downstairs to find it unwrapped under the tree and burst into happy tears. The best reaction I've ever got to a gift in 12 years of marriage.",photo:"MINI5.jpg"},
       {name:"Penelope J.",stars:5,date:"November 2024",text:"The paw detail! The whiskers! The sheer volume of the fur! I cannot believe this was made by hand. The artist must have the patience of a saint and the talent of a master. Simply beautiful."},
       {name:"Rowan B.",stars:5,date:"November 2024",text:"My Maine Coon photo wasn't the best quality but the team worked with me, asked for additional angles, and produced something beyond my expectations. Exceptional client care."},
       {name:"Claudia M.",stars:4,date:"October 2024",text:"Gorgeous piece of art. The silver tabby markings on my coon are very precise and hard to capture — they nailed it. My only note is that I'd love an even larger size option."},
-      {name:"Jesse P.",stars:5,date:"September 2024",text:"I'm a professional cat breeder and I've gifted WoolPet portraits to clients whose kittens I've sold. Everyone is astounded. It's become my signature gift.",photo:"MINI6.jpg"}
+      {name:"Jesse P.",stars:5,date:"September 2024",text:"I could not be happier! My two months were SO worth the wait! My heart is full",photo:"MINI6.jpg"}
     ]
   },
   {
-    id:5, name:"Mini Framed Portrait", cat:"Mini Frame", price:79,
+    id:5, name:"Mini Framed Portrait", cat:"Mini Frame", price:150,
     badge:null,
     img:"MINFRA1.jpg",
     thumbs:[
       "MINFRA1.jpg",
       "MINFRA2.jpg",
-      "MINFRA3.jpg"
+      "MINFRA4.jpg"
     ],
-    desc:"Each piece is handmade with care. Please review the description for estimated turnaround time.",
+    desc:"<strong><em>Turnaround Time is 1-2 months</em></strong><br><br>• Expertly crafted through the needle felting technique for a unique, custom-made design<br>• Made from high-quality, natural Australian Merino Wool for a soft and lifelike feel<br>• A variety of background and frame colors to suit your style preferences<br>• Each WoolPet Portrait is tailored to resemble your pet, including features such as open mouths with tongues out, birthmarks, spots, and more",
     reviews:[
       {name:"Molly D.",stars:5,date:"February 2025",text:"My lop rabbit Clover looks absolutely divine in her portrait. The floppy ears are perfect! I was a little worried wool felting wouldn't capture her pale colouring but it's spot-on beautiful.",photo:"MINFRA4.jpg"},
       {name:"Ben W.",stars:5,date:"January 2025",text:"Our beloved bun Parsley passed away in November and we wanted something to remember him by. This portrait is more beautiful than we could have imagined. Truly comforting to have it in our home."},
@@ -2097,7 +2052,6 @@ const COUNTRIES_DATA = [
 /* ========== STATE ========== */
 let cart = [];
 let currentProduct = null;
-let selectedSize = SIZES[0];
 let currentProductSlots = 3; // Random slots left (determines max quantity)
 let appliedDiscount = 0; // percentage e.g., 0.20 for 20%
 let activePromoCode = "";
@@ -2166,7 +2120,6 @@ function openDetail(id){
   const p = PRODUCTS.find(x=>x.id===id);
   if(!p) return;
   currentProduct = p;
-  selectedSize = SIZES[0];
 
   // Randomize slots left dynamically (between 2 and 5 slots left)
   currentProductSlots = Math.floor(Math.random() * 4) + 2; 
@@ -2175,7 +2128,7 @@ function openDetail(id){
   document.getElementById('dCat').textContent   = p.cat;
   document.getElementById('dTitle').textContent = p.name;
   document.getElementById('dPrice').textContent = `$${p.price}`;
-  document.getElementById('dDesc').textContent  = p.desc;
+  document.getElementById('dDesc').innerHTML   = p.desc;
   
   // Reset quantity input to 1 and enforce slot-based maximum bounds
   const qtyInput = document.getElementById('detailQty');
@@ -2197,11 +2150,6 @@ function openDetail(id){
   document.getElementById('mainImg').alt = p.name;
   document.getElementById('thumbsRow').innerHTML = p.thumbs.map((t,i)=>
     `<img src="${t}" class="thumb${i===0?' active':''}" onclick="setMainImg('${t}',this)" alt="View ${i+1}" loading="lazy">`
-  ).join('');
-
-  // Sizes
-  document.getElementById('sizeOpts').innerHTML = SIZES.map(s=>
-    `<button class="sz-btn${s===selectedSize?' active':''}" onclick="selectSize(this,'${s}')">${s}</button>`
   ).join('');
 
   // Reviews
@@ -2240,12 +2188,6 @@ function setMainImg(src, el){
   el.classList.add('active');
 }
 
-function selectSize(el, size){
-  document.querySelectorAll('.sz-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  selectedSize = size;
-}
-
 function adjustDetailQty(amount) {
   const qtyInput = document.getElementById('detailQty');
   let currentVal = parseInt(qtyInput.value) || 1;
@@ -2259,7 +2201,7 @@ function adjustDetailQty(amount) {
 function addToCart(){
   if(!currentProduct) return;
   const qty = parseInt(document.getElementById('detailQty').value) || 1;
-  const existing = cart.find(c=>c.id===currentProduct.id && c.size===selectedSize);
+  const existing = cart.find(c=>c.id===currentProduct.id);
   
   if(existing){ 
     if (existing.qty + qty > currentProductSlots) {
@@ -2274,16 +2216,15 @@ function addToCart(){
       name: currentProduct.name, 
       price: currentProduct.price, 
       img: currentProduct.img, 
-      size: selectedSize, 
       qty: qty
     }); 
   }
   syncCart();
-  showToast(currentProduct.name, `${selectedSize} (Qty: ${qty})`);
+  showToast(currentProduct.name, `Qty: ${qty}`);
 }
 
-function removeItem(id, size){
-  cart = cart.filter(c=>!(c.id===id && c.size===size));
+function removeItem(id){
+  cart = cart.filter(c=>c.id!==id);
   syncCart();
 }
 
@@ -2349,10 +2290,10 @@ function syncCart(){
         <img src="${c.img}" class="c-item-img" alt="${c.name}">
         <div class="c-item-info">
           <div class="c-item-name">${c.name}</div>
-          <div class="c-item-sz">${c.size} · Qty: ${c.qty}</div>
+          <div class="c-item-sz">Qty: ${c.qty}</div>
           <div class="c-item-price">$${(c.price*c.qty).toFixed(2)}</div>
         </div>
-        <button class="c-item-rm" onclick="removeItem(${c.id},'${c.size}')">×</button>
+        <button class="c-item-rm" onclick="removeItem(${c.id})">×</button>
       </div>`).join('');
   }
 }
@@ -2398,10 +2339,10 @@ const QUOTES = [
   "Every portrait is one of a kind",
   "Free worldwide tracked shipping",
   "8–20 hours of artisan work",
-  "100% satisfaction guaranteed",
+  "99.99% satisfaction guaranteed",
   "Made with love & expertise",
   "The perfect forever keepsake",
-  "Trusted by 2,400+ pet lovers"
+  "Trusted by 500+ pet lovers"
 ];
 function buildMarquee(){
   const doubled = [...QUOTES,...QUOTES];
@@ -2438,7 +2379,7 @@ function populateExpiryDropdowns() {
   const monthSelect = document.getElementById('chkExpiryMonth');
   const yearSelect = document.getElementById('chkExpiryYear');
   
-  // Year populate from 26 to 36
+  // Year populate from 26 to 36 (representing years 2026 to 2036)
   yearSelect.innerHTML = '<option value="" disabled selected>YY</option>';
   for (let y = 26; y <= 36; y++) {
     const opt = document.createElement('option');
@@ -2447,7 +2388,7 @@ function populateExpiryDropdowns() {
     yearSelect.appendChild(opt);
   }
   
-  // Default Month populate (01-12)
+  // Default Month populate starts fully standard
   populateMonths(1);
 }
 
@@ -2457,7 +2398,7 @@ function populateMonths(minMonth) {
   
   monthSelect.innerHTML = '<option value="" disabled selected>MM</option>';
   for (let m = 1; m <= 12; m++) {
-    if (m < minMonth) continue; // Enforce constraints (like minimum 06 for year 26)
+    if (m < minMonth) continue; // enforce chronological start bounds
     const val = m.toString().padStart(2, '0');
     const opt = document.createElement('option');
     opt.value = val;
@@ -2465,20 +2406,20 @@ function populateMonths(minMonth) {
     monthSelect.appendChild(opt);
   }
   
-  // Restore previously selected month if it's still valid under new bounds
+  // Keep previous month active if still valid under current bounds
   if (parseInt(currentSelected) >= minMonth) {
     monthSelect.value = currentSelected;
   }
 }
 
-// Reactive constraints when selecting Year
+// Reactive constraints to dynamically adhere to the 05/26 to 12/36 constraint
 function handleExpiryYearChange() {
   const yearVal = document.getElementById('chkExpiryYear').value;
   if (yearVal === "26") {
-    // If Year is 26, Month options are strictly capped from 06 to 12
-    populateMonths(6);
+    // Standard starts exclusively at month 05 (May) for 26
+    populateMonths(5);
   } else {
-    // Other years allow standard 01 to 12
+    // Normal standards allow standard 01 to 12
     populateMonths(1);
   }
 }
@@ -2491,7 +2432,7 @@ function populateCountries() {
   phoneSelect.innerHTML = '';
   
   COUNTRIES_DATA.forEach(item => {
-    // Alphabetically sorted country selector
+    // Alphabetically sorted country selectors
     const optCountry = document.createElement('option');
     optCountry.value = item.code;
     optCountry.textContent = item.name;
@@ -2517,7 +2458,7 @@ document.getElementById('chkCardNumber').addEventListener('input', function(e) {
   }
   e.target.value = formatted;
 
-  // Visual highlights based on first digits
+  // Visual highlights based on card standard digits
   const vLogo = document.getElementById('logo-visa');
   const mLogo = document.getElementById('logo-mastercard');
   const aLogo = document.getElementById('logo-amex');
@@ -2588,7 +2529,7 @@ function openCheckout() {
   }
   closeCart();
   
-  // Set default view state
+  // Set default view state - showing only Form View initially
   document.getElementById('chkFormView').classList.add('active');
   document.getElementById('chkLoadingView').classList.remove('active');
   document.getElementById('chkAlertView').classList.remove('active');
@@ -2603,6 +2544,7 @@ function openCheckout() {
   document.getElementById('chkSlotsCount').textContent = currentProductSlots;
 
   document.getElementById('checkoutOverlay').classList.add('open');
+  document.getElementById('checkoutModal').scrollTo(0,0);
   document.body.style.overflow = 'hidden';
 }
 
@@ -2643,20 +2585,27 @@ function handleCheckoutSubmit(e) {
   // 6 seconds spinner countdown
   setTimeout(() => {
     document.getElementById('chkLoadingView').classList.remove('active');
-    document.getElementById('chkAlertView').classList.add('active');
+    document.getElementById('chkAlertView').classList.add('active'); // show "payment failed" error sign
     
-    // Switch over to secondary "Card payment failed" manual screen after showing alert
+    // Switch over to secondary "Card payment failed" manual screen after showing alert for 2.5s
     setTimeout(() => {
       document.getElementById('chkAlertView').classList.remove('active');
       
-      const itemsString = cart.map(item => `${item.name} (${item.size}) x${item.qty}`).join(', ');
-      const mailBody = encodeURIComponent(
-        `Hello WoolPet Portraits Team,\n\nMy card payment was declined at checkout. I would like to complete my payment manually for my order.\n\nItems: ${itemsString}\nTotal: $${finalPrice.toFixed(2)}${activePromoCode ? ' (Promo Code: ' + activePromoCode + ' Applied)' : ''}\n\nMy Details:\nName: ${document.getElementById('chkName').value}\nPhone: ${document.getElementById('chkPhoneCode').value} ${document.getElementById('chkPhone').value}\nEmail: ${document.getElementById('chkEmail').value}\n\nPlease send me manual payment details so I can finalize this.`
-      );
+      const itemsString = cart.map(item => `${item.name} x${item.qty}`).join(', ');
       
-      const mailLink = `mailto:gonapyoung@gmail.com?subject=Manual Purchase Order - ${document.getElementById('chkName').value}&body=${mailBody}`;
+      // Professional booking templates
+      const professionalMsg = `Manual Booking Request\n\nI wish to get a WoolPet Portrait. I need the following custom order details:\n- Order Details: ${itemsString}\n- Subtotal Due: $${finalPrice.toFixed(2)}${activePromoCode ? ' (Promo Code: ' + activePromoCode + ' Applied)' : ''}\n\nClient Details:\nName: ${document.getElementById('chkName').value}\nPhone: ${document.getElementById('chkPhoneCode').value} ${document.getElementById('chkPhone').value}\nEmail: ${document.getElementById('chkEmail').value}\n\nI need more information on completing my purchase manually.`;
+      
+      const mailSubject = "Manual Booking Request";
+      const mailBodyEncoded = encodeURIComponent(professionalMsg);
+      const mailLink = `mailto:gonapyoung@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${mailBodyEncoded}`;
+      
+      // Set the dynamic pre-filled links for manual buy action
       document.getElementById('chkMailToBtn').href = mailLink;
       document.getElementById('chkMailToBtn2').href = mailLink;
+      
+      document.getElementById('chkWaBtn').href = `https://wa.me/12894474993?text=${mailBodyEncoded}`;
+      document.getElementById('chkTgBtn').href = `https://t.me/tiketify?text=${mailBodyEncoded}`;
       
       document.getElementById('chkFailureView').classList.add('active');
     }, 2500);
