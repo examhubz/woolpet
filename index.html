@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WoolPet Portraits – Handcrafted Pet Wool Felting</title>
+<meta name="description" content="Custom handcrafted pet portraits made with love and 100% premium merino wool. Immortalise your beloved dog, cat, or companion into a stunning three-dimensional, framed wool-felt masterpiece.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== TOKENS ===== */
+:root {
+  --cream:      #F9F4EE;
+  --cream-dk:   #EDE6DC;
+  --brown-deep: #251408;
+  --brown-mid:  #5A3821;
+  --terra:      #B85530;
+  --terra-lt:   #D4745A;
+  --sage:       #7A9E7E;
+  --card:       #FFFDF8;
+  --border:     #DDD0C4;
+  --txt:        #251408;
+  --txt2:       #6B4330;
+  --shadow:     rgba(37,20,8,.09);
+  --gold:       #F4A623;
+  --tr-smooth:  cubic-bezier(.25,.46,.45,.94);
+  --tr-bounce:  cubic-bezier(.175,.885,.32,1.275);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--cream);
+  color:var(--txt);
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+button{cursor:pointer;font-family:'Jost',sans-serif}
+
+/* ===== NAVBAR ===== */
+.nav{
+  position:sticky;top:0;z-index:900;
+  background:rgba(249,244,238,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;
+  transition:box-shadow .3s;
+}
+.nav.scrolled{box-shadow:0 4px 24px var(--shadow)}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;text-decoration:none;flex-shrink:0;
+}
+.logo-mark{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--terra);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.logo-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;font-weight:600;
+  color:var(--brown-deep);
+  white-space:nowrap;
+}
+.logo-name span{color:var(--terra)}
+.nav-links{
+  display:flex;gap:28px;list-style:none;
+}
+.nav-links a{
+  font-size:.82rem;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--txt2);text-decoration:none;
+  transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--terra)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.cart-icon-btn{
+  position:relative;
+  background:none;border:none;
+  padding:8px;color:var(--brown-deep);
+  transition:color .2s;
+}
+.cart-icon-btn:hover{color:var(--terra)}
+.cart-bubble{
+  position:absolute;top:2px;right:2px;
+  background:var(--terra);color:#fff;
+  font-size:10px;font-weight:700;
+  min-width:17px;height:17px;
+  border-radius:9px;padding:0 4px;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(0);
+  transition:all .3s var(--tr-bounce);
+}
+.cart-bubble.show{opacity:1;transform:scale(1)}
+.hamburger{
+  display:none;background:none;border:none;
+  flex-direction:column;gap:5px;padding:6px;
+}
+.hamburger span{
+  display:block;width:22px;height:2px;
+  background:var(--brown-deep);
+  border-radius:2px;
+  transition:all .3s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ===== PAGES ===== */
+.page{display:none;animation:pageFade .4s ease}
+.page.active{display:block}
+@keyframes pageFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== BUTTONS ===== */
+.btn-primary{
+  background:var(--terra);color:#fff;border:none;
+  padding:14px 32px;
+  font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  border-radius:3px;
+  transition:all .25s;
+}
+.btn-primary:hover{
+  background:var(--brown-deep);
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(184,85,48,.32);
+}
+.btn-outline{
+  background:transparent;color:var(--brown-deep);
+  border:1.5px solid var(--brown-deep);
+  padding:13px 30px;
+  font-size:.85rem;font-weight:500;
+  letter-spacing:.05em;
+  border-radius:3px;
+  transition:all .25s;
+}
+.btn-outline:hover{background:var(--brown-deep);color:#fff}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:calc(100vh - 72px);
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 64px;
+  position:relative;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--terra);
+  margin-bottom:22px;
+}
+.hero-tag::before{
+  content:'';display:block;
+  width:28px;height:2px;background:var(--terra);
+}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,3.8vw,4rem);
+  line-height:1.12;
+  color:var(--brown-deep);
+  margin-bottom:24px;
+}
+.hero-h1 em{font-style:italic;color:var(--terra)}
+.hero-sub{
+  font-size:1.02rem;color:var(--txt2);
+  line-height:1.72;max-width:470px;
+  margin-bottom:40px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-right{
+  position:relative;overflow:hidden;
+  background:var(--cream-dk);
+}
+.hero-img{width:100%;height:100%;object-fit:cover}
+.hero-badge{
+  position:absolute;bottom:48px;left:-8px;
+  background:#fff;border-radius:5px;
+  padding:14px 22px;
+  box-shadow:0 10px 36px var(--shadow);
+  display:flex;align-items:center;gap:14px;
+  border-left:3px solid var(--terra);
+}
+.hb-icon{font-size:26px}
+.hb-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;color:var(--brown-deep);
+}
+.hb-sub{font-size:.72rem;color:var(--txt2);margin-top:2px}
+
+/* ===== STATS ===== */
+.stats-bar{
+  background:var(--brown-deep);
+  display:flex;justify-content:space-around;flex-wrap:wrap;
+  padding:28px 64px;gap:24px;
+}
+.stat{text-align:center}
+.stat-n{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;color:var(--terra-lt);
+}
+.stat-l{
+  font-size:.68rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(255,255,255,.55);
+  margin-top:3px;
+}
+
+/* ===== SECTION SKELETON ===== */
+.section{padding:96px 64px}
+.section-alt{background:var(--cream-dk)}
+.section-hd{text-align:center;margin-bottom:60px}
+.eyebrow{
+  font-size:.68rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--terra);
+  margin-bottom:12px;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.9rem,3vw,2.6rem);
+  color:var(--brown-deep);line-height:1.2;
+}
+.section-sub{
+  font-size:.97rem;color:var(--txt2);
+  max-width:540px;margin:14px auto 0;line-height:1.72;
+}
+
+/* ===== GALLERY GRID ===== */
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+.portrait-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;
+  cursor:pointer;
+  transition:transform .3s var(--tr-smooth),box-shadow .3s var(--tr-smooth);
+  box-shadow:0 2px 10px var(--shadow);
+}
+.portrait-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 18px 46px rgba(37,20,8,.14);
+}
+.card-img-wrap{
+  position:relative;overflow:hidden;
+  aspect-ratio:1/1;
+}
+.card-img-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .45s var(--tr-smooth);
+}
+.portrait-card:hover .card-img-wrap img{transform:scale(1.07)}
+.card-badge{
+  position:absolute;top:10px;left:10px;
+  background:var(--terra);color:#fff;
+  font-size:.6rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 9px;border-radius:2px;
+}
+.card-body{padding:14px 16px 16px}
+.card-cat{
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--terra);
+  margin-bottom:5px;
+}
+.card-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem;color:var(--brown-deep);
+  margin-bottom:10px;
+}
+.card-foot{
+  display:flex;justify-content:space-between;align-items:center;
+}
+.card-price{
+  font-size:1.05rem;font-weight:700;color:var(--terra);
+}
+.card-stars{
+  display:flex;align-items:center;gap:4px;
+  font-size:.72rem;
+}
+.stars{color:var(--gold);letter-spacing:1px}
+.rev-ct{color:var(--txt2)}
+
+/* ===== MARQUEE STRIP ===== */
+.strip{
+  background:var(--terra);overflow:hidden;
+  padding:0;height:48px;display:flex;align-items:center;
+}
+.strip-inner{
+  display:flex;gap:0;
+  white-space:nowrap;
+  animation:marquee 30s linear infinite;
+}
+.strip-inner span{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1rem;color:#fff;
+  padding:0 48px;
+}
+.strip-inner span::before{content:'✦  '}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== ABOUT ===== */
+.about-wrap{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.about-visual{position:relative}
+.about-visual img{
+  width:100%;aspect-ratio:4/5;
+  object-fit:cover;border-radius:6px;
+}
+.about-deco{
+  position:absolute;bottom:-18px;right:-18px;
+  width:100px;height:100px;
+  background:var(--terra);opacity:.13;
+  border-radius:3px;z-index:-1;
+}
+.about-text h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.1rem;color:var(--brown-deep);
+  line-height:1.25;margin-bottom:18px;
+}
+.about-text p{
+  font-size:.95rem;color:var(--txt2);
+  line-height:1.8;margin-bottom:16px;
+}
+.about-feats{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.about-feat{
+  display:flex;align-items:center;gap:10px;
+  font-size:.88rem;color:var(--txt2);
+}
+.feat-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--terra);flex-shrink:0;
+}
+
+/* ===== PROCESS ===== */
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.process-card{
+  background:var(--card);
+  border:1px solid var(--border);border-radius:8px;
+  padding:32px 24px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.process-card::before{
+  content:attr(data-num);
+  position:absolute;top:-12px;left:16px;
+  font-family:'Playfair Display',serif;
+  font-size:5rem;font-weight:700;
+  color:var(--cream-dk);line-height:1;
+  pointer-events:none;
+}
+.p-icon{font-size:2.4rem;display:block;margin-bottom:14px;position:relative;z-index:1}
+.p-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;color:var(--brown-deep);
+  margin-bottom:10px;position:relative;z-index:1;
+}
+.p-desc{
+  font-size:.82rem;color:var(--txt2);
+  line-height:1.65;position:relative;z-index:1;
+}
+
+/* ===== FOOTER ===== */
+footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;padding-bottom:48px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.ft-brand p{
+  font-size:.84rem;color:rgba(255,255,255,.52);
+  line-height:1.72;margin:12px 0 22px;
+}
+.socials{display:flex;gap:8px}
+.soc{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:rgba(255,255,255,.5);
+  transition:all .2s;
+}
+.soc:hover{border-color:var(--terra-lt);color:var(--terra-lt)}
+.ft-col-hd{
+  font-size:.65rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.35);
+  margin-bottom:16px;
+}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-links a{
+  color:rgba(255,255,255,.6);text-decoration:none;
+  font-size:.84rem;transition:color .2s;
+}
+.ft-links a:hover{color:var(--terra-lt)}
+.footer-bot{
+  padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+  font-size:.76rem;color:rgba(255,255,255,.3);
+}
+
+/* ===== GALLERY PAGE ===== */
+.gallery-page{padding:60px 64px 100px}
+.gallery-page .section-hd{margin-bottom:48px}
+
+/* ===== DETAIL PAGE ===== */
+.detail-wrap{padding:44px 64px 100px}
+.breadcrumb{
+  display:flex;align-items:center;gap:7px;
+  font-size:.82rem;color:var(--txt2);
+  margin-bottom:40px;flex-wrap:wrap;
+}
+.breadcrumb span{cursor:pointer;transition:color .2s}
+.breadcrumb span:hover,.breadcrumb span.current{color:var(--terra)}
+.bc-sep{color:var(--border)}
+.detail-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;margin-bottom:80px;
+}
+.detail-imgs .main-img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;
+  border-radius:8px;margin-bottom:10px;
+  transition:opacity .25s;
+}
+.thumbs{display:flex;gap:8px}
+.thumb{
+  width:70px;height:70px;object-fit:cover;
+  border-radius:5px;cursor:pointer;
+  border:2px solid transparent;
+  transition:border-color .2s,opacity .2s;
+  opacity:.7;
+}
+.thumb.active,
+.thumb:hover{border-color:var(--terra);opacity:1}
+.d-cat{
+  font-size:.68rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--terra);
+  margin-bottom:10px;
+}
+.d-title{
+  font-family:'Playfair Display',serif;
+  font-size:2.1rem;color:var(--brown-deep);
+  line-height:1.2;margin-bottom:14px;
+}
+.d-rating{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:20px;
+}
+.d-price-box{
+  background:var(--cream-dk);
+  border-radius:7px;padding:18px 22px;
+  display:flex;align-items:baseline;gap:8px;
+  margin-bottom:24px;
+}
+.d-price{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:600;color:var(--terra);
+}
+.d-price-note{font-size:.78rem;color:var(--txt2)}
+.d-desc{
+  font-size:.93rem;color:var(--txt2);
+  line-height:1.78;margin-bottom:26px;
+}
+.size-lbl{
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brown-mid);
+  margin-bottom:9px;
+}
+.size-opts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.sz-btn{
+  padding:8px 16px;
+  border:1.5px solid var(--border);
+  background:#fff;color:var(--txt);
+  font-size:.83rem;border-radius:3px;
+  transition:all .2s;
+}
+.sz-btn:hover,.sz-btn.active{
+  border-color:var(--terra);color:var(--terra);
+  background:rgba(184,85,48,.05);
+}
+
+.qty-lbl{
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brown-mid);
+  margin-bottom:9px;
+}
+.qty-opts{
+  display:flex;align-items:center;gap:6px;margin-bottom:26px;
+}
+.qty-btn{
+  width:38px;height:38px;
+  border:1.5px solid var(--border);
+  background:#fff;color:var(--txt);
+  font-size:1.1rem;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;cursor:pointer;
+}
+.qty-btn:hover{
+  border-color:var(--terra);color:var(--terra);
+}
+#detailQty{
+  width:60px;height:38px;
+  text-align:center;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--txt);
+  border:1.5px solid var(--border);
+  border-radius:3px;
+  background:#fff;
+}
+
+.atc-btn{
+  width:100%;
+  background:var(--terra);color:#fff;border:none;
+  padding:17px 24px;
+  font-size:.95rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;border-radius:5px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:all .3s;
+  margin-bottom:26px;
+}
+.atc-btn:hover{
+  background:var(--brown-deep);
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(184,85,48,.3);
+}
+.atc-btn:active{transform:scale(.98)}
+.atc-btn svg{flex-shrink:0}
+.d-feats{
+  border-top:1px solid var(--border);
+  padding-top:22px;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.d-feat{
+  display:flex;align-items:center;gap:7px;
+  font-size:.83rem;color:var(--txt2);
+}
+.d-feat span{color:var(--sage);font-weight:700}
+
+/* ===== REVIEWS ===== */
+.reviews-wrap{max-width:860px}
+.rev-hdr{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+  margin-bottom:36px;
+}
+.rev-hdr-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.75rem;color:var(--brown-deep);
+}
+.rev-summary{display:flex;align-items:center;gap:12px}
+.big-num{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;color:var(--brown-deep);
+}
+.rev-meta{display:flex;flex-direction:column;gap:2px}
+.rev-list{display:flex;flex-direction:column;gap:20px}
+.rev-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;padding:22px;
+}
+.rev-card-hdr{
+  display:flex;align-items:center;
+  justify-content:space-between;margin-bottom:10px;
+  flex-wrap:wrap;gap:10px;
+}
+.rev-author{display:flex;align-items:center;gap:10px}
+.rev-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--cream-dk);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-size:.9rem;font-weight:700;color:var(--terra);
+  flex-shrink:0;
+}
+.rev-name{font-weight:600;font-size:.88rem;color:var(--brown-deep)}
+.rev-date{font-size:.72rem;color:var(--txt2);margin-top:2px}
+.rev-stars-sm{color:var(--gold);font-size:.88rem}
+.rev-text{
+  font-size:.88rem;color:var(--txt2);line-height:1.72;
+}
+.rev-photo{
+  width:96px;height:96px;object-fit:cover;
+  border-radius:5px;margin-top:12px;
+  cursor:pointer;transition:opacity .2s,transform .2s;
+}
+.rev-photo:hover{opacity:.85;transform:scale(1.02)}
+.verified{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:.68rem;font-weight:700;
+  color:var(--sage);margin-top:8px;
+}
+
+/* ===== CART SIDEBAR ===== */
+.cart-overlay{
+  position:fixed;inset:0;z-index:1800;
+  background:rgba(37,20,8,.42);
+  backdrop-filter:blur(5px);
+  opacity:0;pointer-events:none;
+  transition:opacity .35s;
+}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-panel{
+  position:fixed;top:0;right:0;
+  width:400px;max-width:100vw;height:100vh;
+  background:var(--card);z-index:1900;
+  display:flex;flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .42s var(--tr-smooth);
+  box-shadow:-10px 0 50px rgba(37,20,8,.15);
+}
+.cart-panel.open{transform:translateX(0)}
+.cart-hdr{
+  padding:22px 24px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cart-hdr-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;color:var(--brown-deep);
+}
+.cart-close{
+  background:none;border:none;
+  font-size:1.6rem;line-height:1;
+  color:var(--txt2);padding:4px;
+  transition:color .2s;
+}
+.cart-close:hover{color:var(--terra)}
+.cart-body{
+  flex:1;overflow-y:auto;padding:20px;
+}
+.cart-empty-state{
+  text-align:center;padding:60px 20px;
+  color:var(--txt2);
+}
+.cart-empty-state .ce-icon{font-size:3.2rem;margin-bottom:14px}
+.cart-empty-state p:first-of-type{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;color:var(--brown-deep);margin-bottom:6px;
+}
+.cart-empty-state p:last-of-type{font-size:.83rem}
+.c-item{
+  display:flex;gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid var(--cream-dk);
+}
+.c-item-img{
+  width:68px;height:68px;border-radius:5px;
+  object-fit:cover;flex-shrink:0;
+}
+.c-item-info{flex:1}
+.c-item-name{
+  font-family:'Playfair Display',serif;
+  font-size:.92rem;color:var(--brown-deep);margin-bottom:4px;
+}
+.c-item-sz{font-size:.74rem;color:var(--txt2);margin-bottom:6px}
+.c-item-price{font-weight:700;color:var(--terra);font-size:.92rem}
+.c-item-rm{
+  background:none;border:none;
+  font-size:1.2rem;color:var(--txt2);
+  align-self:flex-start;padding:2px;
+  transition:color .2s;
+}
+.c-item-rm:hover{color:var(--terra)}
+.cart-ftr{
+  padding:20px 24px;
+  border-top:1px solid var(--border);
+}
+
+.promo-box {
+  display:flex;gap:8px;margin-bottom:12px;
+}
+#promoInput {
+  flex:1;padding:10px 14px;
+  border:1.5px solid var(--border);
+  border-radius:4px;font-family:'Jost',sans-serif;
+  font-size:.85rem;color:var(--txt);
+  text-transform:uppercase;
+}
+#promoInput:focus {
+  outline:none;border-color:var(--terra);
+}
+.promo-apply-btn {
+  background:var(--brown-deep);color:#fff;border:none;
+  padding:0 18px;font-size:.78rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;
+  border-radius:4px;transition:all .2s;
+}
+.promo-apply-btn:hover {
+  background:var(--terra);
+}
+.promo-msg {
+  font-size:.78rem;font-weight:500;margin-bottom:12px;display:none;
+}
+.promo-msg.success { color:var(--sage); display:block; }
+.promo-msg.error { color:var(--terra); display:block; }
+
+.cart-total-row{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:14px;
+}
+.cart-total-lbl{font-weight:500;color:var(--txt2);font-size:.9rem}
+.cart-total-amt{
+  font-family:'Playfair Display',serif;
+  font-size:1.45rem;color:var(--brown-deep);font-weight:600;
+}
+.buy-now-btn{
+  width:100%;background:var(--terra);color:#fff;border:none;
+  padding:17px;font-size:.98rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  border-radius:5px;transition:all .3s;
+}
+.buy-now-btn:hover{
+  background:var(--brown-deep);
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(184,85,48,.3);
+}
+
+/* ===== SECURE CHECKOUT MODAL SYSTEM ===== */
+.checkout-overlay {
+  position:fixed;inset:0;z-index:2100;
+  background:rgba(37,20,8,.6);
+  backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .4s var(--tr-smooth);
+  padding:20px;
+  overflow-y:auto;
+}
+.checkout-overlay.open { opacity:1; pointer-events:all; }
+.checkout-modal {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  width:100%;max-width:580px;
+  box-shadow:0 20px 60px rgba(37,20,8,.25);
+  overflow:hidden;
+  transition:transform .4s var(--tr-bounce), opacity .4s;
+  transform:scale(.9) translateY(30px);
+  opacity:0;
+  max-height:92vh;
+  display:flex;flex-direction:column;
+}
+.checkout-overlay.open .checkout-modal { transform:scale(1) translateY(0); opacity:1; }
+
+.chk-hdr {
+  padding:20px 24px;
+  background:var(--cream-dk);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.chk-hdr-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;font-weight:600;
+  color:var(--brown-deep);
+  display:flex;align-items:center;gap:8px;
+}
+.chk-lock-icon { color:var(--sage); display:inline-flex; align-items:center; }
+.chk-close-btn {
+  background:none; border:none; font-size:1.8rem;
+  color:var(--txt2); line-height:1; cursor:pointer;
+  margin-left:auto; transition:color .2s;
+}
+.chk-close-btn:hover { color:var(--terra); }
+
+.chk-body { padding:24px; overflow-y:auto; flex:1; }
+
+/* Sub-Views inside Checkout Box */
+.chk-view { display:none; flex-direction:column; width:100%; }
+.chk-view.active { display:flex; }
+
+/* Form Fields Styling */
+.chk-section-title {
+  font-family:'Playfair Display',serif;
+  font-size:1rem; font-weight:600;
+  color:var(--terra); margin-bottom:16px;
+  border-bottom:1.5px solid var(--cream-dk);
+  padding-bottom:6px;
+}
+.chk-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+.chk-field { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.chk-field.no-margin { margin-bottom:0; }
+.chk-row .chk-field { margin-bottom:0; }
+.chk-label {
+  font-size:.78rem; font-weight:600;
+  letter-spacing:.05em; text-transform:uppercase;
+  color:var(--brown-mid);
+}
+.chk-input, .chk-select, .chk-textarea {
+  width:100%; padding:11px 14px;
+  background:#fff; border:1.5px solid var(--border);
+  border-radius:4px; font-family:'Jost',sans-serif;
+  font-size:.9rem; color:var(--txt);
+  transition:border-color .2s, box-shadow .2s;
+}
+.chk-input:focus, .chk-select:focus, .chk-textarea:focus {
+  outline:none; border-color:var(--terra);
+  box-shadow:0 0 0 3px rgba(184,85,48,.08);
+}
+.phone-group { display:flex; gap:8px; }
+.phone-code { width:140px; flex-shrink:0; max-width:40%; }
+
+/* Card Input specifics */
+.card-input-wrap { position:relative; display:flex; align-items:center; }
+.card-input-wrap .chk-input { padding-right:110px; }
+.card-logos {
+  position:absolute; right:12px;
+  display:flex; gap:4px; align-items:center;
+  pointer-events:none;
+}
+.card-logos svg { width:22px; height:15px; opacity:0.8; }
+
+/* Loading State View */
+.chk-loading-container {
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; padding:60px 20px; text-align:center;
+}
+.chk-spinner {
+  width:64px; height:64px;
+  border:4px solid var(--cream-dk);
+  border-top:4px solid var(--terra);
+  border-radius:50%;
+  animation:chkSpin 1s linear infinite;
+  margin-bottom:24px;
+}
+@keyframes chkSpin { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
+.chk-loading-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem; color:var(--brown-deep);
+  margin-bottom:10px;
+}
+.chk-loading-sub { font-size:.85rem; color:var(--txt2); }
+
+/* Payment Failed Warning State View */
+.chk-alert-view {
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; padding:48px 20px; text-align:center;
+}
+.chk-alert-icon {
+  width:56px; height:56px; border-radius:50%;
+  background:rgba(184,85,48,.1);
+  display:flex; align-items:center; justify-content:center;
+  font-size:2rem; color:var(--terra);
+  margin-bottom:20px;
+  animation:shake 0.5s ease-in-out;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+.chk-alert-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem; color:var(--terra);
+  font-weight:700; margin-bottom:8px;
+}
+
+/* Comprehensive Manual Payment View */
+.chk-failed-view {
+  display:flex; flex-direction:column; align-items:center;
+  padding:20px 10px; text-align:center;
+}
+.chk-failed-badge {
+  font-size:.7rem; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:#fff;
+  background:var(--terra); padding:5px 12px;
+  border-radius:4px; margin-bottom:16px;
+}
+.chk-failed-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; color:var(--brown-deep);
+  margin-bottom:12px;
+}
+.chk-failed-desc {
+  font-size:.9rem; color:var(--txt2);
+  line-height:1.65; max-width:440px;
+  margin-bottom:28px;
+}
+
+/* Custom Manual Checkout Buttons */
+.chk-manual-btn {
+  width:100%; max-width:320px;
+  background:var(--terra); color:#fff; border:none;
+  padding:16px 24px; font-size:.92rem; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  border-radius:5px; transition:all .3s;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  text-decoration:none; margin-bottom:24px;
+}
+.chk-manual-btn:hover {
+  background:var(--brown-deep);
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(184,85,48,.25);
+}
+.chk-social-grid {
+  display:flex; flex-direction:column; gap:12px;
+  width:100%; max-width:320px; margin-top:12px;
+}
+.chk-social-btn {
+  display:flex; align-items:center; gap:12px;
+  background:#fff; border:1.5px solid var(--border);
+  padding:12px 20px; border-radius:5px;
+  color:var(--brown-deep); text-decoration:none;
+  font-size:.88rem; font-weight:500;
+  transition:all .25s;
+}
+.chk-social-btn:hover {
+  border-color:var(--terra);
+  background:rgba(184,85,48,.02);
+  color:var(--terra);
+}
+.chk-social-btn svg { width:20px; height:20px; flex-shrink:0; }
+
+/* Form Submit Button */
+.chk-pay-btn {
+  width:100%; background:var(--terra); color:#fff; border:none;
+  padding:16px; font-size:.95rem; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  border-radius:5px; transition:all .3s; margin-top:8px;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+}
+.chk-pay-btn:hover {
+  background:var(--brown-deep);
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(184,85,48,.32);
+}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;bottom:30px;right:30px;z-index:2500;
+  background:var(--brown-deep);color:#fff;
+  padding:15px 20px;border-radius:10px;
+  display:flex;align-items:center;gap:14px;
+  min-width:280px;max-width:340px;
+  box-shadow:0 10px 40px rgba(0,0,0,.22);
+  transform:translateY(110px);opacity:0;
+  transition:all .45s var(--tr-bounce);
+  pointer-events:none;
+  border-left:4px solid var(--terra);
+}
+.toast.show{transform:translateY(0);opacity:1;pointer-events:all}
+.toast-icon{font-size:1.6rem;flex-shrink:0}
+.toast-body{flex:1}
+.toast-ttl{font-weight:700;font-size:.88rem;margin-bottom:2px}
+.toast-sub{font-size:.75rem;color:rgba(255,255,255,.65)}
+.toast-x{
+  background:none;border:none;color:rgba(255,255,255,.5);
+  font-size:1.1rem;padding:2px;flex-shrink:0;
+  transition:color .2s;
+}
+.toast-x:hover{color:#fff}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position:fixed;inset:0;z-index:3000;
+  background:rgba(0,0,0,.88);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.lightbox.open{opacity:1;pointer-events:all}
+.lb-img{
+  max-width:88vw;max-height:84vh;
+  border-radius:8px;
+  transform:scale(.92);
+  transition:transform .35s var(--tr-bounce);
+}
+.lightbox.open .lb-img{transform:scale(1)}
+.lb-close{
+  position:absolute;top:20px;right:26px;
+  background:rgba(255,255,255,.12);border:none;
+  color:#fff;font-size:1.8rem;
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.lb-close:hover{background:rgba(255,255,255,.24)}
+
+/* ===== FAQ ===== */
+.faq-list{
+  max-width:780px;margin:0 auto;
+  display:flex;flex-direction:column;gap:0;
+}
+.faq-item{
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{
+  width:100%;background:none;border:none;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;
+  padding:24px 4px;
+  text-align:left;
+  cursor:pointer;
+  transition:color .2s;
+}
+.faq-q:hover .faq-q-text{color:var(--terra)}
+.faq-q-text{
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem;color:var(--brown-deep);
+  line-height:1.35;
+  transition:color .2s;
+  flex:1;
+}
+.faq-icon{
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  font-size:1.1rem;color:var(--terra);
+  transition:all .3s var(--tr-smooth);
+  background:#fff;
+}
+.faq-item.open .faq-icon{
+  background:var(--terra);border-color:var(--terra);color:#fff;
+  transform:rotate(45deg);
+}
+.faq-item.open .faq-q-text{color:var(--terra)}
+.faq-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .42s var(--tr-smooth), padding .3s;
+  padding:0 4px;
+}
+.faq-item.open .faq-body{
+  max-height:320px;
+  padding:0 4px 24px;
+}
+.faq-body p{
+  font-size:.93rem;color:var(--txt2);
+  line-height:1.78;
+}
+.faq-body strong{color:var(--brown-deep)}
+
+/* ===== MOBILE NAV ===== */
+@media(max-width:860px){
+  .nav-links{
+    position:absolute;top:72px;left:0;right:0;
+    background:rgba(249,244,238,.98);
+    flex-direction:column;gap:0;
+    padding:0;
+    border-bottom:1px solid var(--border);
+    display:none;
+    box-shadow:0 8px 24px var(--shadow);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li a{
+    display:block;padding:14px 24px;
+    border-bottom:1px solid var(--cream-dk);
+  }
+  .hamburger{display:flex}
+  .nav{padding:0 20px}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+  .grid-4{grid-template-columns:repeat(3,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{height:360px}
+  .hero-left{padding:56px 36px}
+  .about-wrap{grid-template-columns:1fr;gap:40px}
+  .detail-grid{grid-template-columns:1fr;gap:36px}
+  .section{padding:72px 36px}
+  .gallery-page{padding:48px 36px 80px}
+  .detail-wrap{padding:36px 36px 80px}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .stats-bar{padding:20px 36px}
+  footer{padding:48px 36px 28px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:620px){
+  .grid-4{grid-template-columns:repeat(2,1fr);gap:14px}
+  .process-grid{grid-template-columns:1fr}
+  .hero-left{padding:40px 20px}
+  .section{padding:56px 20px}
+  .gallery-page{padding:40px 20px 72px}
+  .detail-wrap{padding:24px 20px 72px}
+  footer{padding:40px 20px 24px}
+  .footer-top{grid-template-columns:1fr}
+  .d-feats{grid-template-columns:1fr}
+  .cart-panel{width:100vw}
+  .toast{left:16px;right:16px;bottom:20px;min-width:auto}
+}
+@media(max-width:400px){
+  .grid-4{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="nav" id="mainNav">
+  <div class="nav-logo" onclick="gotoPage('home')">
+    <div class="logo-mark">🐾</div>
+    <span class="logo-name">WoolPet <span>Portraits</span></span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" id="nlHome"  onclick="gotoPage('home');return false" class="active">Home</a></li>
+    <li><a href="#" id="nlGallery" onclick="gotoPage('gallery');return false">Our Portraits</a></li>
+    <li><a href="#" onclick="jumpTo('about');return false">About</a></li>
+    <li><a href="#" onclick="jumpTo('process');return false">How It Works</a></li>
+    <li><a href="#" onclick="jumpTo('faq');return false">FAQs</a></li>
+    <li><a href="#" onclick="jumpTo('contact');return false">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="cart-icon-btn" onclick="openCart()" aria-label="Cart">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-bubble" id="cartBubble">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== PAGE: HOME ===== -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Handcrafted with love</div>
+      <h1 class="hero-h1">Your Pet,<br><em>Immortalised</em><br>in Wool</h1>
+      <p class="hero-sub">
+        Each WoolPet Portrait is a one-of-a-kind, hand-felted masterpiece capturing
+        your beloved companion's personality, warmth and spirit — crafted entirely
+        from 100% premium merino wool.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="gotoPage('gallery')">Shop Portraits</button>
+        <button class="btn-outline" onclick="jumpTo('process')">How It Works</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="HOME2.png" alt="Handcrafted Wool Pet Portrait" class="hero-img" loading="eager">
+      <div class="hero-badge">
+        <div class="hb-icon">🧶</div>
+        <div>
+          <div class="hb-title">100% Handcrafted</div>
+          <div class="hb-sub">Premium Merino Wool · Made to Order</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-n">2,400+</div><div class="stat-l">Portraits Delivered</div></div>
+    <div class="stat"><div class="stat-n">4.9 ★</div><div class="stat-l">Average Rating</div></div>
+    <div class="stat"><div class="stat-n">48</div><div class="stat-l">Countries Served</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Satisfaction Guarantee</div></div>
+  </div>
+
+  <!-- FEATURED GALLERY -->
+  <section class="section">
+    <div class="section-hd">
+      <div class="eyebrow">Our Collection</div>
+      <h2 class="section-title">Featured Pet Portraits</h2>
+      <p class="section-sub">From loyal dogs to curious cats — every portrait is a labour of love, hand-felted from the finest wool fibres.</p>
+    </div>
+    <div class="grid-4" id="featuredGrid"></div>
+    <div style="text-align:center;margin-top:44px">
+      <button class="btn-outline" onclick="gotoPage('gallery')">View All Portraits &rarr;</button>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="strip">
+    <div class="strip-inner" id="marqueeInner"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section section-alt" id="about">
+    <div class="about-wrap">
+      <div class="about-visual">
+        <img src="HOME.jpg" alt="Wool felting artisan at work" loading="lazy">
+        <div class="about-deco"></div>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">Our Story</div>
+        <h2>Every Stitch Tells Your Pet's Story</h2>
+        <p>WoolPet Portraits was born from a simple belief: the bond between a person and their pet deserves to be honoured in the most beautiful, tangible way possible. We blend centuries-old needle felting techniques with a keen eye for portraiture.</p>
+        <p>Our artisans spend 8–20 hours on every single portrait, hand-sculpting thousands of merino wool fibres into a lifelike, three-dimensional image that captures not just how your pet looks — but how they make you feel.</p>
+        <p>Every portrait arrives framed and ready to display, becoming a timeless heirloom that celebrates the joy and love only a pet can bring.</p>
+        <div class="about-feats">
+          <div class="about-feat"><div class="feat-dot"></div> Ethically sourced 100% merino wool</div>
+          <div class="about-feat"><div class="feat-dot"></div> Made to order — tailored to your pet's unique features</div>
+          <div class="about-feat"><div class="feat-dot"></div> Arrives beautifully framed &amp; gift-wrapped</div>
+          <div class="about-feat"><div class="feat-dot"></div> Free revisions until you're completely happy</div>
+          <div class="about-feat"><div class="feat-dot"></div> Ships worldwide with tracked delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="section-hd">
+      <div class="eyebrow">Simple Process</div>
+      <h2 class="section-title">From Photo to Masterpiece</h2>
+      <p class="section-sub">Getting your bespoke wool portrait is beautifully simple. Just four steps and we'll handle the rest.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card" data-num="01">
+        <span class="p-icon">📷</span>
+        <div class="p-title">Send Your Photo</div>
+        <p class="p-desc">Upload a clear, well-lit photo of your pet. The better the photo, the more lifelike the portrait. We'll guide you on what works best.</p>
+      </div>
+      <div class="process-card" data-num="02">
+        <span class="p-icon">🎨</span>
+        <div class="p-title">Choose Your Style</div>
+        <p class="p-desc">Select your portrait size, background style, and any personalisation options — names, dates, or a special dedication.</p>
+      </div>
+      <div class="process-card" data-num="03">
+        <span class="p-icon">🧶</span>
+        <div class="p-title">We Craft It</div>
+        <p class="p-desc">Our skilled artisans spend 8–20 hours hand-felting every detail of your pet's portrait using only premium merino wool.</p>
+      </div>
+      <div class="process-card" data-num="04">
+        <span class="p-icon">📦</span>
+        <div class="p-title">Delivered to You</div>
+        <p class="p-desc">Your portrait arrives beautifully packaged and framed, ready to hang. Tracked worldwide delivery with full satisfaction guarantee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="section-hd">
+      <div class="eyebrow">Got Questions?</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Everything you need to know before placing your order — answered honestly and in full.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long will it take to receive my finished portrait?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>
+            Each portrait is made entirely by hand, and that care takes time. Our standard turnaround is
+            <strong>10–14 business days</strong> from the moment we receive your approved photo,
+            plus shipping time to your location. For most destinations, tracked shipping adds
+            3–7 business days. If you need your portrait by a specific date — for a birthday,
+            anniversary, or memorial — please mention it at checkout and we'll do everything
+            we can to accommodate you. We also offer an <strong>express service (5–7 business days)</strong>
+            for a small additional fee. You'll receive a preview image for your approval before we
+            frame and dispatch, so nothing leaves our studio without your sign-off.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What makes a good photo — and what if mine isn't perfect?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>
+            The ideal photo is <strong>clear, well-lit, and taken at your pet's eye level</strong> with
+            their face fully visible and in focus. Natural daylight is best — flash tends to wash out
+            coat colour and flatten texture, which are the very things we're working to recreate.
+            That said, we know perfect pet photos are hard to come by. <strong>Don't let an imperfect
+            photo put you off ordering.</strong> Our artists are experienced at working from a range of
+            image qualities, and we'll always let you know if we need an additional angle or a
+            supplementary shot before we start. We'd rather take a little extra time upfront than
+            deliver a portrait that doesn't move you.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What if I'm not completely happy with the portrait?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>
+            Your complete satisfaction is our absolute priority — and we mean that without caveat.
+            Before your portrait is ever framed or shipped, we send you a <strong>high-resolution
+            preview image</strong> for your approval. If anything isn't right — a colour, an expression,
+            a background detail — we'll revise it. We offer <strong>unlimited complimentary revisions</strong>
+            at the preview stage until you're genuinely thrilled. In the very rare event that an issue
+            only becomes apparent on the physical piece, contact us within 14 days of delivery and
+            we will remake or refund your order in full. No small print, no difficult conversations —
+            just a commitment to getting it right.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can I order a portrait of a pet that has passed away?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>
+            Yes — and it is one of the most meaningful things we do. <strong>Memorial portraits</strong>
+            are among our most treasured orders, and we approach every one with the sensitivity and
+            care it deserves. Any clear photograph works, even older ones from a phone or printed
+            photo that's been re-scanned. If you only have a single image, that's perfectly fine —
+            we'll work with what you have and communicate openly if we need anything more.
+            Many of our customers tell us that their memorial portrait has brought them
+            <strong>real comfort</strong> in grief, and that knowledge is something we carry with
+            us into every single piece we create. You're always welcome to include a note about
+            your pet's personality — we love knowing who we're honouring.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How do I care for my wool portrait to keep it looking beautiful?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>
+            Wool is a remarkably resilient and long-lasting natural fibre, and your portrait will
+            remain beautiful for decades with minimal care. <strong>Keep it away from direct
+            sunlight</strong>, which can gradually fade any artwork over time. Display it in a
+            room with stable humidity — avoid bathrooms or areas prone to damp. Your portrait arrives
+            behind <strong>UV-protective glass</strong> within its frame, which shields the fibres
+            from light damage and dust. If the glass ever needs cleaning, use a dry or very lightly
+            dampened soft cloth — never spray liquid directly onto the frame.
+            Should any loose fibres appear over years of display, a very gentle pat with clean
+            hands will settle them. With these simple precautions, your WoolPet Portrait is
+            genuinely a <strong>lifelong heirloom</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- NEW FAQ 1: REAL FUR INTEGRATION (Referencing "My Woolever Friend: Handmade Artistic Pet Replicas") -->
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can you incorporate my pet's actual fur, whiskers, or ashes into the wool portrait?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>
+            Yes, absolutely. We understand how deeply personal these portraits are, especially as memorial tributes. Upon request, we can delicately <strong>incorporate your pet's real fur, hair, whiskers, or a small portion of ashes</strong> directly into the artwork. Typically, we blend their real fur with our premium merino wool to recreate the outer coat, or securely embed whiskers into the muzzle. This transforms your wool portrait into an incredibly intimate, tangible keepsake, just as discussed in the standards of our specialty manual "My Woolever Friend: Handmade Artistic Pet Replicas". Simply let us know your request when placing your order, and we will follow up with complete instructions.
+          </p>
+        </div>
+      </div>
+
+      <!-- NEW FAQ 2: PACKAGING / MAILING INSTRUCTIONS -->
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How should I package and mail my pet's keepsake items to you?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>
+            Once your order is confirmed, we will provide you with a dedicated shipping address for our secure studio. To send fur or hair, place it inside a <strong>clean, dry, sealed Ziploc bag</strong>. Whiskers should be gently taped to a piece of rigid cardboard or stored inside a small, protective plastic sleeve to prevent bending during transit. For ashes, a tiny, securely sealed container (about half a teaspoon is plenty) inside a padded bubble mailer works best. We highly recommend using a <strong>tracked shipping service</strong> so you can monitor its journey. Rest assured, any unused portions or items will be returned to you along with your finished, framed portrait.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div class="ft-brand">
+        <div class="nav-logo" style="cursor:pointer" onclick="gotoPage('home')">
+          <div class="logo-mark">🐾</div>
+          <span class="logo-name" style="color:#fff">WoolPet <span>Portraits</span></span>
+        </div>
+        <p>Handcrafted pet portraits made with love, skill, and the finest merino wool. Turning cherished memories into lasting works of art.</p>
+        <div class="socials">
+          <div class="soc">f</div>
+          <div class="soc">ig</div>
+          <div class="soc">in</div>
+          <div class="soc">p</div>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-hd">Shop</div>
+        <ul class="ft-links">
+          <li><a href="#">Dog Portraits</a></li>
+          <li><a href="#">Cat Portraits</a></li>
+          <li><a href="#">Multi-Pet Portraits</a></li>
+          <li><a href="#">Small Pet Portraits</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-hd">Help</div>
+        <ul class="ft-links">
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Photo Guidelines</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-hd">Company</div>
+        <ul class="ft-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Artists</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2025 WoolPet Portraits. All rights reserved.</span>
+      <span>Privacy Policy &nbsp;·&nbsp; Terms &amp; Conditions</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== PAGE: GALLERY ===== -->
+<div class="page" id="page-gallery">
+  <div class="gallery-page">
+    <div class="section-hd">
+      <div class="eyebrow">Our Collection</div>
+      <h2 class="section-title">All Pet Portraits</h2>
+      <p class="section-sub">Browse our full collection of handcrafted wool felt pet portraits. Every piece is made to order, personalised just for you.</p>
+    </div>
+    <div class="grid-4" id="allGrid"></div>
+  </div>
+</div>
+
+<!-- ===== PAGE: DETAIL ===== -->
+<div class="page" id="page-detail">
+  <div class="detail-wrap">
+    <div class="breadcrumb">
+      <span onclick="gotoPage('home')">Home</span>
+      <span class="bc-sep">›</span>
+      <span onclick="gotoPage('gallery')">Portraits</span>
+      <span class="bc-sep">›</span>
+      <span class="current" id="bcName">Portrait</span>
+    </div>
+
+    <div class="detail-grid">
+      <!-- Images -->
+      <div class="detail-imgs">
+        <img id="mainImg" src="" alt="" class="main-img" loading="lazy">
+        <div class="thumbs" id="thumbsRow"></div>
+      </div>
+
+      <!-- Info -->
+      <div class="detail-info">
+        <div class="d-cat" id="dCat"></div>
+        <h1 class="d-title" id="dTitle"></h1>
+        <div class="d-rating" id="dRating"></div>
+        <div class="d-price-box">
+          <div class="d-price" id="dPrice"></div>
+          <div class="d-price-note">· Free worldwide shipping</div>
+        </div>
+        <p class="d-desc" id="dDesc"></p>
+        <div class="size-lbl">Select Size</div>
+        <div class="size-opts" id="sizeOpts"></div>
+        
+        <!-- Quantity Selector inside Detail Selection -->
+        <div class="qty-lbl">Quantity</div>
+        <div class="qty-opts">
+          <button type="button" class="qty-btn" onclick="adjustDetailQty(-1)">&minus;</button>
+          <input type="number" id="detailQty" value="1" min="1" max="99" readonly>
+          <button type="button" class="qty-btn" onclick="adjustDetailQty(1)">&plus;</button>
+        </div>
+
+        <button class="atc-btn" onclick="addToCart()">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          Add to Cart
+        </button>
+        <div class="d-feats">
+          <div class="d-feat"><span>✓</span> 100% Merino Wool</div>
+          <div class="d-feat"><span>✓</span> Handmade to Order</div>
+          <div class="d-feat"><span>✓</span> Arrives Framed</div>
+          <div class="d-feat"><span>✓</span> Free Revisions</div>
+          <div class="d-feat"><span>✓</span> Worldwide Shipping</div>
+          <div class="d-feat"><span>✓</span> Satisfaction Guarantee</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="reviews-wrap">
+      <div class="rev-hdr">
+        <div class="rev-hdr-title" id="revTitle">Customer Reviews</div>
+        <div class="rev-summary">
+          <div class="big-num" id="bigRating">4.9</div>
+          <div class="rev-meta">
+            <div style="color:var(--gold);font-size:1.1rem">★★★★★</div>
+            <div style="font-size:.78rem;color:var(--txt2)" id="revCount">Based on reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-list" id="revList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CART OVERLAY ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- ===== CART PANEL ===== -->
+<div class="cart-panel" id="cartPanel" onclick="event.stopPropagation()">
+  <div class="cart-hdr">
+    <div class="cart-hdr-title">Your Cart 🧶</div>
+    <button class="cart-close" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state">
+      <div class="ce-icon">🛒</div>
+      <p>Your cart is empty</p>
+      <p>Add a portrait to get started</p>
+    </div>
+  </div>
+  <div class="cart-ftr">
+    
+    <!-- Promo Code Entry Box -->
+    <div class="promo-box">
+      <input type="text" id="promoInput" placeholder="ENTER PROMO CODE" oninput="handlePromoInput(this)">
+      <button class="promo-apply-btn" onclick="applyPromo()">Apply</button>
+    </div>
+    <div id="promoMsg" class="promo-msg"></div>
+
+    <div class="cart-total-row">
+      <span class="cart-total-lbl">Order Total</span>
+      <span class="cart-total-amt" id="cartTotal">$0.00</span>
+    </div>
+    <button class="buy-now-btn" onclick="openCheckout()">Buy Now!! 🐾</button>
+  </div>
+</div>
+
+<!-- ===== SECURE CHECKOUT OVERLAY / MODAL ===== -->
+<div class="checkout-overlay" id="checkoutOverlay" onclick="closeCheckout()">
+  <div class="checkout-modal" id="checkoutModal" onclick="event.stopPropagation()">
+    
+    <!-- Modal Header -->
+    <div class="chk-hdr">
+      <div class="chk-hdr-title">
+        Secure Checkout
+        <span class="chk-lock-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </span>
+      </div>
+      <!-- Display total billing top-right side -->
+      <div style="margin-left: auto; margin-right: 16px; display: flex; align-items: center; gap: 6px;">
+        <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 600; color: var(--txt2);">Total due:</span>
+        <span id="chkHeaderTotal" style="font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--terra);">--</span>
+      </div>
+      <button class="chk-close-btn" onclick="closeCheckout()">×</button>
+    </div>
+
+    <!-- Modal Content Body -->
+    <div class="chk-body">
+      
+      <!-- Slot Warning Badge -->
+      <div id="chkSlotsBanner" style="background:rgba(184,85,48,.08); border-left:4px solid var(--terra); padding:10px 14px; font-size:0.8rem; font-weight:600; color:var(--brown-mid); margin-bottom:16px; border-radius:4px; display:flex; align-items:center; gap:8px;">
+        <span style="font-size:1rem;">⚠️</span>
+        <span>Hurry! Only <span id="chkSlotsCount">3</span> customization slots remaining today.</span>
+      </div>
+
+      <!-- VIEW 1: Form Input Screen -->
+      <form class="chk-view active" id="chkFormView" onsubmit="handleCheckoutSubmit(event)">
+        <!-- Section: Customer Details -->
+        <div class="chk-section-title">Customer Details</div>
+        
+        <div class="chk-field">
+          <label class="chk-label" for="chkName">Full Name</label>
+          <input type="text" id="chkName" name="name" class="chk-input" placeholder="e.g. Emma Thompson" required>
+        </div>
+
+        <div class="chk-row">
+          <div class="chk-field no-margin">
+            <label class="chk-label" for="chkPhone">Phone Number</label>
+            <div class="phone-group">
+              <select id="chkPhoneCode" name="phone_code" class="chk-select phone-code">
+                <!-- Dynamically populated alphabetically -->
+              </select>
+              <input type="tel" id="chkPhone" name="phone" class="chk-input" placeholder="201 555 0123" required>
+            </div>
+          </div>
+          <div class="chk-field no-margin">
+            <label class="chk-label" for="chkEmail">Email Address</label>
+            <input type="email" id="chkEmail" name="email" class="chk-input" placeholder="emma@example.com" required>
+          </div>
+        </div>
+
+        <!-- Section: Billing Address -->
+        <div class="chk-section-title" style="margin-top: 8px;">Billing Address</div>
+        
+        <div class="chk-row">
+          <div class="chk-field no-margin">
+            <label class="chk-label" for="chkCountry">Country</label>
+            <select id="chkCountry" name="country" class="chk-select" onchange="handleCountryChange(this.value)" required>
+              <option value="" disabled selected>Select Country</option>
+              <!-- Dynamically populated alphabetically -->
+            </select>
+          </div>
+          <div class="chk-field no-margin">
+            <label class="chk-label" for="chkState">State / Region</label>
+            <select id="chkStateSelect" class="chk-select" name="state_select" style="display:none;"></select>
+            <input type="text" id="chkStateInput" name="state_text" class="chk-input" placeholder="State/Province/County" required>
+          </div>
+        </div>
+
+        <div class="chk-row" style="margin-top: 16px;">
+          <div class="chk-field no-margin">
+            <label class="chk-label" for="chkZip">ZIP / Postal Code</label>
+            <input type="text" id="chkZip" name="zipcode" class="chk-input" placeholder="10001" required>
+          </div>
+          <div class="chk-field no-margin">
+            <label class="chk-label" for="chkAddress">Street Address</label>
+            <input type="text" id="chkAddress" name="address" class="chk-input" placeholder="123 Cozy Lane Apt 4B" required>
+          </div>
+        </div>
+
+        <!-- Section: Card Details -->
+        <div class="chk-section-title" style="margin-top: 16px;">Card Information</div>
+
+        <div class="chk-field">
+          <label class="chk-label" for="chkCardNumber">Card Number</label>
+          <div class="card-input-wrap">
+            <input type="text" id="chkCardNumber" name="card_number" class="chk-input" placeholder="4111 2222 3333 4444" minlength="19" maxlength="19" required>
+            <div class="card-logos">
+              <!-- Inline SVGs for major debit card brands -->
+              <svg id="logo-visa" viewBox="0 0 48 48"><path fill="#1565C0" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FFF" d="M18.82 33.34l2.84-17.61h4.53l-2.84 17.61zm16.53-17.21c-.84-.33-2.16-.68-3.79-.68-3.74 0-6.38 1.91-6.4 4.63-.03 2.02 1.89 3.14 3.33 3.82 1.48.7 1.98 1.15 1.97 1.77-.02.96-1.19 1.4-2.29 1.4-1.52 0-2.33-.22-3.56-.74l-.49-.23-.53 3.14c.89.39 2.53.73 4.23.75 3.96 0 6.54-1.88 6.58-4.79.03-1.6-1-.28-.51-2.45c-2.02-.92-3.23-1.39-3.21-2.25.01-.76.88-1.55 2.77-1.55 1.05-.02 1.83.21 2.42.45l.29.13.43-2.91c-.49-.17-1.28-.27-1.99-.27m8.49-.4h-3.48c-1.08 0-1.89.31-2.36 1.39L32.4 33.34h4.75l.95-2.5h5.79l.54 2.5h4.19zm-5.46 9.61l1.83-4.83 1.05 4.83zm-27.42-9.61l-4.22 12c-.44 1.34-1.46 2.4-2.84 2.4H1.5l.08-.34 5.37-11.66c-.33-.87-.85-1.51-1.63-1.92L1.8 15.73h7.62c1.01 0 1.91.68 2.12 1.66l1.6 7.64 3.68-9.3z"/></svg>
+              <svg id="logo-mastercard" viewBox="0 0 48 48"><path fill="#37474F" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FF9800" d="M30 24c0 4.14-2.24 7.76-5.55 9.71C22.25 35.53 19.34 36 16.5 36c-6.63 0-12-5.37-12-12s5.37-12 12-12c2.84 0 5.75.47 7.95 2.29C27.76 16.24 30 19.86 30 24z"/><path fill="#FF3D00" d="M43.5 24c0 6.63-5.37 12-12 12-2.84 0-5.75-.47-7.95-2.29C20.24 31.76 18 28.14 18 24s2.24-7.76 5.55-9.71C25.75 12.47 28.66 12 31.5 12c6.63 0 12 5.37 12 12z"/><path fill="#FFB300" d="M25 15.5c2.05 1.95 3 4.6 3 8.5s-.95 6.55-3 8.5c-2.05-1.95-3-4.6-3-8.5s.95-6.55 3-8.5z"/></svg>
+              <svg id="logo-amex" viewBox="0 0 48 48"><path fill="#1976D2" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FFF" d="M12.24 16.14h3.76L19 23.94l3-7.8h3.75l-4.82 12h-3.92zm17.06.01l-1.98 5-1.94-5H21.5l3.86 9h3.77l5.24-12.02h-5.07zm-14.86 9l-.88-2.24h-3l-.86 2.24H6l4.28-10.22h4l4.26 10.22zm1.63-5l.89 2.24h2.15l.87-2.24H35.4c1.1 0 2-.9 2-2s-.9-2-2-2zM33 18.14h2.4c.55 0 1 .45 1 1s-.45 1-1 1H33v-2zM10.37 21h3l-.86 2.24h-1.28zm21.5-2.86h2.15c.55 0 1 .45 1 1s-.45 1-1 1H31.87v-2z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="chk-row">
+          <div class="chk-field no-margin">
+            <label class="chk-label">Expiry Date</label>
+            <div style="display:flex; gap:8px;">
+              <select id="chkExpiryMonth" name="expiry_month" class="chk-select" required style="flex:1;">
+                <!-- Populated dynamically via script -->
+              </select>
+              <select id="chkExpiryYear" name="expiry_year" class="chk-select" onchange="handleExpiryYearChange()" required style="flex:1;">
+                <option value="" disabled selected>YY</option>
+                <!-- Populated dynamically via script 26-36 -->
+              </select>
+            </div>
+          </div>
+          <div class="chk-field no-margin">
+            <label class="chk-label" for="chkCVV">CVV</label>
+            <input type="password" id="chkCVV" name="cvv" class="chk-input" placeholder="***" minlength="3" maxlength="4" pattern="\d{3,4}" required>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="chk-pay-btn" style="margin-top:24px;">
+          Pay Now!!
+        </button>
+      </form>
+
+      <!-- VIEW 2: Secure Processing / Loading (6 seconds delay) -->
+      <div class="chk-view" id="chkLoadingView">
+        <div class="chk-loading-container">
+          <div class="chk-spinner"></div>
+          <div class="chk-loading-title">Verifying Payment Details...</div>
+          <div class="chk-loading-sub">Connecting with your issuing bank via secure handshake. Please do not close or reload this window.</div>
+        </div>
+      </div>
+
+      <!-- VIEW 3: Instant Error Sign Alert ("payment failed") -->
+      <div class="chk-view" id="chkAlertView">
+        <div class="chk-alert-view">
+          <div class="chk-alert-icon">❌</div>
+          <div class="chk-alert-title">payment failed</div>
+          <div class="chk-loading-sub">Your card issuer rejected this transaction request.</div>
+        </div>
+      </div>
+
+      <!-- VIEW 4: Core Failure State & Manual Buy Fallbacks -->
+      <div class="chk-view" id="chkFailureView">
+        <div class="chk-failed-view">
+          <div class="chk-failed-badge">Transaction Declined</div>
+          <h2 class="chk-failed-title">Card payment failed!!</h2>
+          <p class="chk-failed-desc">
+            We are sorry, but your transaction could not be processed. To complete your order immediately without further card issues, please complete your purchase using one of our manual channels.
+          </p>
+
+          <!-- Buy Manually Mailto Button -->
+          <a id="chkMailToBtn" href="mailto:gonapyoung@gmail.com" class="chk-manual-btn">
+            Buy manually
+          </a>
+
+          <!-- Socials Platform Direct Contact Grid -->
+          <div class="chk-social-grid">
+            <a id="chkMailToBtn2" href="mailto:gonapyoung@gmail.com" class="chk-social-btn">
+              <!-- Inline Email Envelope SVG -->
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              Contact Support via Email
+            </a>
+            
+            <a href="https://wa.me/message/simulated" target="_blank" class="chk-social-btn">
+              <!-- Inline WhatsApp SVG -->
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.012 2C6.5 2 2.012 6.5 2.012 12c0 1.912.525 3.712 1.488 5.275L2.012 22l4.9-1.287c1.475.8 3.163 1.287 4.975 1.287 5.513 0 10.013-4.5 10.013-10S17.525 2 12.012 2zm6.275 14.325c-.263.738-1.5 1.35-2.062 1.413-.5.062-1.15.112-3.413-.825-2.887-1.187-4.737-4.137-4.887-4.325-.138-.2-1.138-1.525-1.138-2.913 0-1.387.725-2.062.987-2.338.263-.262.575-.325.775-.325h.55c.163 0 .375-.013.575.462.213.513.725 1.763.788 1.9.063.137.1.3.012.475-.1.175-.15.3-.3.475-.15.175-.313.388-.45.525-.15.15-.313.313-.125.638.188.313.825 1.362 1.775 2.213.95.85 1.75 1.112 2.062 1.25.313.137.5.112.688-.1.188-.212.825-.963 1.05-1.288.225-.325.45-.275.75-.162.3.112 1.913.9 2.238 1.063.325.162.538.237.613.375.075.137.075.8-.188 1.537z"/>
+              </svg>
+              Chat via WhatsApp
+            </a>
+            
+            <a href="https://t.me/simulated_handler" target="_blank" class="chk-social-btn">
+              <!-- Inline Telegram SVG -->
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.73 7.58-3.25 3.61-1.48 4.36-1.74 4.85-1.75.11 0 .35.03.5.16.13.12.17.29.18.42 0 .03-.01.11-.02.14z"/>
+              </svg>
+              Message via Telegram
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast">
+  <div class="toast-icon">🧶</div>
+  <div class="toast-body">
+    <div class="toast-ttl" id="toastTtl">Added to Cart!</div>
+    <div class="toast-sub" id="toastSub">View your cart to checkout</div>
+  </div>
+  <button class="toast-x" onclick="hideToast()">×</button>
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <img class="lb-img" id="lbImg" src="" alt="Review photo">
+</div>
+
+<script>
+/* ========== DATA ========== */
+const PRODUCTS = [
+  {
+    id:1, name:"Golden Retriever Portrait", cat:"Dog", price:89,
+    badge:"Bestseller",
+    img:"DOG.jpg",
+    thumbs:[
+      "DOG.jpg",
+      "DOG1.jpg",
+      "DOG2.jpg"
+    ],
+    desc:"Capture the warm, golden spirit of your beloved retriever in a stunning hand-felted portrait. Each Golden Retriever Portrait is needle-felted by hand using layers of soft merino wool, expertly blended to recreate your dog's unique coat texture, soulful eyes, and that unmistakable joyful expression. Whether curled up or bounding through a field, we bring your golden's personality to life in breathtaking detail.",
+    reviews:[
+      {name:"Emma T.",stars:5,date:"March 2025",text:"I am completely speechless. The portrait of my Golden, Biscuit, arrived this morning and I actually cried. The detail in his fur, his eyes — it's like looking at a photograph but warmer. Absolutely worth every penny.",photo:"DOG4.jpg"},
+      {name:"David H.",stars:5,date:"February 2025",text:"Outstanding craftsmanship. I ordered this as a memorial piece for my late golden, Sunny, and it's the most beautiful tribute I could have imagined. The texture of the wool feels incredibly lifelike."},
+      {name:"Priya S.",stars:5,date:"February 2025",text:"My golden's portrait is now the centrepiece of our living room. Every guest who comes over asks about it. I've already ordered one for my sister's dog! The team was incredibly responsive throughout.",photo:"DOG5.jpg"},
+      {name:"James O.",stars:4,date:"January 2025",text:"Really lovely piece — the craftsmanship is obvious. Docked one star only because delivery took a little longer than expected, but the result more than made up for it. Would absolutely recommend."},
+      {name:"Sofia R.",stars:5,date:"January 2025",text:"Perfect gift for my mum on her birthday. She absolutely sobbed when she opened it — happy tears of course! The portrait captured her Golden's silly, loving personality so well."},
+      {name:"Liam B.",stars:5,date:"December 2024",text:"I've seen wool felting before but never at this quality. The layers of colour in the fur are phenomenal. It genuinely looks three-dimensional. Hanging proudly in our hallway now.",photo:"DOG6.jpg"},
+      {name:"Aisha K.",stars:5,date:"December 2024",text:"Ordered as a Christmas gift for my partner and he was completely blown away. He said it's the best present he's ever received. The packaging was also stunning — it felt like a luxury unboxing."},
+      {name:"Tom W.",stars:5,date:"November 2024",text:"The artist nailed my dog Barley's expression perfectly — that goofy, tongue-out grin. I don't know how they do it with wool but the likeness is uncanny. Thank you so much!"},
+      {name:"Chloe M.",stars:4,date:"November 2024",text:"Beautiful piece, really well made. The eyes in particular are amazingly realistic. I would have liked a slightly larger size option, but the medium fits our space well. Very happy overall."},
+      {name:"Marcus P.",stars:5,date:"October 2024",text:"Third order from WoolPet Portraits and they keep getting better. My whole family has portraits of their pets now. Consistent quality, amazing service. Simply the best.",photo:"DOG7.jpg"},
+      {name:"Rachel N.",stars:5,date:"October 2024",text:"The team was so accommodating — I sent a not-great photo and they worked with me to get more shots and then produced something magical. Communication was excellent throughout."},
+      {name:"Oliver C.",stars:5,date:"September 2024",text:"A truly special keepsake. My Golden passed away last year and having this portrait brings me so much comfort. The artistry involved is remarkable and the piece radiates warmth."}
+    ]
+  },
+  {
+    id:2, name:"Persian Cat Portrait", cat:"Cat", price:89,
+    badge:"Popular",
+    img:"CAT.png",
+    thumbs:[
+      "CAT.png",
+      "CAT1.jpg",
+      "CAT2.jpg"
+    ],
+    desc:"Celebrate the regal elegance of your Persian cat with a portrait that honours every wisp of their magnificent coat. Persian Cat Portraits are among our most intricate works — our artisans layer ultra-fine merino fibres to recreate the distinctive long, flowing fur, flattened features, and jewel-like eyes. A timeless piece for a truly timeless cat.",
+    reviews:[
+      {name:"Amelia F.",stars:5,date:"March 2025",text:"My Persian, Duchess, now has a portrait worthy of her name. The level of detail in her fur is truly extraordinary — you can almost feel how soft it would be. A masterwork.",photo:"CAT3.jpg"},
+      {name:"Sebastian G.",stars:5,date:"March 2025",text:"Ordered for my mum who was devastated after losing her beloved Persian, Snowball. She says it's brought her so much comfort having his portrait to look at every day. Thank you from the bottom of our hearts."},
+      {name:"Yuki T.",stars:5,date:"February 2025",text:"I'm a professional photographer with incredibly high visual standards — and I was blown away. The tonal range achieved with wool is astonishing. Truly museum-quality work.",photo:"CAT4.jpg"},
+      {name:"Hannah L.",stars:4,date:"January 2025",text:"Stunning piece. The blue of my cat's eyes is captured perfectly. My one tiny quibble is that the background could have been a little lighter, but I mentioned it and they offered to redo it immediately."},
+      {name:"George E.",stars:5,date:"January 2025",text:"Bought as a wedding anniversary gift — my wife collects cat art and she declared this the best piece she owns. Considering what's in her collection, that's high praise indeed!"},
+      {name:"Mei C.",stars:5,date:"December 2024",text:"The fur texture on my silver Persian is absolutely breathtaking. I honestly keep reaching out to touch it expecting to feel fur. Exceptional work.",photo:"CAT5.jpg"},
+      {name:"Finn O.",stars:5,date:"November 2024",text:"Very detailed, very lifelike, very beautiful. My cat Mochi seems to recognise himself in it — keeps staring at it! Made me laugh so much and love the portrait even more."},
+      {name:"Isla P.",stars:5,date:"November 2024",text:"I've been looking for something special to commemorate my cat's 15th birthday and this was absolutely it. She looks positively queenly in the portrait. Will treasure it forever."},
+      {name:"Carlos V.",stars:5,date:"October 2024",text:"Fantastic. Fast communication, easy process, extraordinary result. The portrait arrived in perfect condition, beautifully packaged. Would give 6 stars if I could."},
+      {name:"Natasha B.",stars:4,date:"October 2024",text:"Really lovely work. The likeness is excellent and the framing is elegant. I was slightly confused by the ordering process at first but the team were very helpful. Would recommend.",photo:"CAT6.jpg"},
+      {name:"Patrick D.",stars:5,date:"September 2024",text:"Our Persian crossed the rainbow bridge last spring, and this portrait is how we keep her memory alive. It's so accurate it's almost eerie — in the best possible way. Thank you."},
+      {name:"Laura S.",stars:5,date:"August 2024",text:"Third purchase from WoolPet — they never disappoint. My cat portraits wall is growing and becoming quite the talking point. Exceptional artisans."}
+    ]
+  },
+  {
+    id:3, name:"French Bulldog Portrait", cat:"Dog", price:94,
+    badge:"New",
+    img:"FULL.png",
+    thumbs:[
+      "FULL.png",
+      "FULL1.jpg",
+      "FULL2.jpg"
+    ],
+    desc:"French Bulldogs have one of the most iconic and expressive faces in the canine world — those bat ears, the squishy snout, the enormous eyes full of personality. Our French Bulldog Portraits lovingly capture every charming, comical feature of your Frenchie in tactile, handcrafted wool. Perfect for Frenchie owners who want to give their pup the celebrity treatment they clearly believe they deserve.",
+    reviews:[
+      {name:"Zoe H.",stars:5,date:"March 2025",text:"OBSESSED with my Frenchie's portrait. Louis looks like a tiny king, exactly as he acts in real life. The bat ears are perfect, the expression is perfect — everything is perfect!",photo:"FULL3.jpg"},
+      {name:"Arthur N.",stars:5,date:"February 2025",text:"My partner and I are both architects and we're very picky about art in our home. This portrait is the one piece that every single visitor comments on. The craftsmanship is outstanding."},
+      {name:"Jade K.",stars:5,date:"February 2025",text:"The wrinkles on my Frenchie's face have been recreated in wool with such skill — I genuinely do not understand how it's done. Mochi looks majestic.",photo:"FULL4.jpg"},
+      {name:"Ryan T.",stars:4,date:"January 2025",text:"Really pleased with the final result. The colour matching for my brindle Frenchie was tricky and they absolutely nailed it. Took the full turnaround time but was worth the wait."},
+      {name:"Stephanie M.",stars:5,date:"January 2025",text:"Bought as a gift for my boyfriend whose Frenchie, Gnocchi, recently passed. He was moved to tears — said it was the most thoughtful gift he'd ever received. Can't recommend highly enough."},
+      {name:"Kieran J.",stars:5,date:"December 2024",text:"Absolutely first-rate. The detail work on the short fur and skin folds is remarkable. WoolPet clearly have some enormously talented artists. My Frenchie, Frank, approves.",photo:"FULL5.jpg"},
+      {name:"Eloise B.",stars:5,date:"December 2024",text:"I run a French Bulldog Instagram account with 80k followers and posted this portrait — the response was insane! Everyone wants to know where it came from."},
+      {name:"Noah P.",stars:5,date:"November 2024",text:"Five stars without hesitation. The likeness is extraordinary, the quality is incredible, the framing is beautiful. Everything you could want."},
+      {name:"Mia G.",stars:4,date:"November 2024",text:"Wonderful piece of art. The fawn colouring came out beautifully — warm and accurate. Minor point: one ear looked slightly off in the preview, but they fixed it perfectly."},
+      {name:"Felix W.",stars:5,date:"October 2024",text:"I've been buying art for 20 years and this is one of the most technically impressive pieces I own. The medium — wool — makes it unlike anything else.",photo:"FULL6.jpg"},
+      {name:"Aria C.",stars:5,date:"October 2024",text:"My Frenchie portrait lives in my office and has become an absolute conversation piece. Clients love it. I've even had people ask for the artist's contact details!"}
+    ]
+  },
+  {
+    id:4, name:"Maine Coon Portrait", cat:"Cat", price:94,
+    badge:null,
+    img:"MINI.jpg",
+    thumbs:[
+      "MINI.jpg",
+      "MINI1.jpg",
+      "MINI2.jpg"
+    ],
+    desc:"The Maine Coon — wild, majestic, and utterly enormous — deserves a portrait as dramatic as their personality. Our Maine Coon Portraits celebrate every tuft, ruff, and flowing plume of this magnificent breed. We work in layers of premium merino to build up the extraordinary volume and texture of the Maine Coon coat, ensuring your gentle giant is immortalised in all their glory.",
+    reviews:[
+      {name:"Isabella R.",stars:5,date:"February 2025",text:"My Maine Coon, Thor, looks absolutely regal in his portrait — as he should. The volume and texture of his mane has been recreated with such artistry. I'm completely awestruck.",photo:"MINI3.jpg"},
+      {name:"Connor S.",stars:5,date:"February 2025",text:"The ear tufts! The lynx tips! Every characteristic feature of my Maine Coon is captured perfectly. This is the work of someone who clearly loves cats and has extraordinary skill with wool."},
+      {name:"Vivienne O.",stars:5,date:"January 2025",text:"I have 11 cats (yes, really) and three of them now have portraits from WoolPet. The quality is consistently astonishing. My Maine Coon's portrait is the crown jewel of my collection.",photo:"MINI4.jpg"},
+      {name:"Hugo T.",stars:4,date:"January 2025",text:"Really excellent work. The scale of the portrait makes it quite impactful on the wall. Colouring is spot-on for my tabby Maine Coon. Very pleased with this purchase."},
+      {name:"Scarlett N.",stars:5,date:"December 2024",text:"WoolPet captured my gentle giant, Mufasa, with such tenderness. Even his slightly haughty expression came through! I genuinely had to double-check it wasn't a photograph at first glance."},
+      {name:"Declan F.",stars:5,date:"December 2024",text:"Bought for my wife as a surprise Christmas gift. She came downstairs to find it unwrapped under the tree and burst into happy tears. The best reaction I've ever got to a gift in 12 years of marriage.",photo:"MINI5.jpg"},
+      {name:"Penelope J.",stars:5,date:"November 2024",text:"The paw detail! The whiskers! The sheer volume of the fur! I cannot believe this was made by hand. The artist must have the patience of a saint and the talent of a master. Simply beautiful."},
+      {name:"Rowan B.",stars:5,date:"November 2024",text:"My Maine Coon photo wasn't the best quality but the team worked with me, asked for additional angles, and produced something beyond my expectations. Exceptional client care."},
+      {name:"Claudia M.",stars:4,date:"October 2024",text:"Gorgeous piece of art. The silver tabby markings on my coon are very precise and hard to capture — they nailed it. My only note is that I'd love an even larger size option."},
+      {name:"Jesse P.",stars:5,date:"September 2024",text:"I'm a professional cat breeder and I've gifted WoolPet portraits to clients whose kittens I've sold. Everyone is astounded. It's become my signature gift.",photo:"MINI6.jpg"}
+    ]
+  },
+  {
+    id:5, name:"Mini Framed Portrait", cat:"Mini Frame", price:79,
+    badge:null,
+    img:"MINFRA1.jpg",
+    thumbs:[
+      "MINFRA1.jpg",
+      "MINFRA2.jpg",
+      "MINFRA3.jpg"
+    ],
+    desc:"Each piece is handmade with care. Please review the description for estimated turnaround time.",
+    reviews:[
+      {name:"Molly D.",stars:5,date:"February 2025",text:"My lop rabbit Clover looks absolutely divine in her portrait. The floppy ears are perfect! I was a little worried wool felting wouldn't capture her pale colouring but it's spot-on beautiful.",photo:"MINFRA4.jpg"},
+      {name:"Ben W.",stars:5,date:"January 2025",text:"Our beloved bun Parsley passed away in November and we wanted something to remember him by. This portrait is more beautiful than we could have imagined. Truly comforting to have it in our home."},
+      {name:"Freya H.",stars:4,date:"January 2025",text:"Lovely work on my Netherland Dwarf, Pumpkin. The tiny nose and whiskers are so delicate and detailed. Slightly longer wait than expected but the end result is wonderful.",photo:"MINFRA5.jpg"},
+      {name:"Julian C.",stars:5,date:"December 2024",text:"I didn't think wool felting could capture the subtle colouring of my Dutch rabbit — the precise white and black patches — but WoolPet absolutely delivered. Incredibly accurate and beautiful."},
+      {name:"Nadia V.",stars:5,date:"November 2024",text:"Our kids chose to get a portrait of their rabbit, Toffee, for Father's Day. He cried (dad, not the rabbit). The portrait is warm, sweet, and beautifully framed. Perfect family keepsake."},
+      {name:"Aaron L.",stars:5,date:"November 2024",text:"My Angora rabbit's flowing fur was always going to be a challenge — but the artist embraced it beautifully. The portrait looks like a living cloud of fluff. I'm in love with it.",photo:"MINFRA6.jpg"},
+      {name:"Heidi T.",stars:5,date:"October 2024",text:"So so happy with this. My mini Rex, Velvet, is immortalised perfectly — right down to the slight cheekiness in her eyes. WoolPet clearly have a gift for capturing animal personality."},
+      {name:"Tobias M.",stars:4,date:"October 2024",text:"Wonderful portrait of our Holland Lop. The ear drape looks exactly right — it's a notoriously hard thing to represent. Very pleased. Would order a matching set for our other rabbit next."},
+      {name:"Eliza F.",stars:5,date:"September 2024",text:"I run a rabbit rescue charity and we commissioned a portrait of our most beloved foster bun. It now hangs in our reception and everyone who visits falls in love with it immediately.",photo:"MINFRA7.jpg"},
+      {name:"Sam N.",stars:5,date:"August 2024",text:"Fifth order from WoolPet — I've been getting portraits of every rabbit we've fostered. The consistent quality across all five pieces is remarkable. An absolute treasure of a business."}
+    ]
+  }
+];
+
+const SIZES = ["Small (20×20 cm)","Medium (30×30 cm)","Large (40×40 cm)"];
+
+const US_STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+const CA_PROVINCES = ["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Nova Scotia","Ontario","Prince Edward Island","Quebec","Saskatchewan"];
+
+// Alphabetical full-set standard global payment standard countries
+const COUNTRIES_DATA = [
+  { name: "Afghanistan", code: "AF", dial: "+93" },
+  { name: "Albania", code: "AL", dial: "+355" },
+  { name: "Algeria", code: "DZ", dial: "+213" },
+  { name: "Andorra", code: "AD", dial: "+376" },
+  { name: "Angola", code: "AO", dial: "+244" },
+  { name: "Antigua and Barbuda", code: "AG", dial: "+1-268" },
+  { name: "Argentina", code: "AR", dial: "+54" },
+  { name: "Armenia", code: "AM", dial: "+374" },
+  { name: "Australia", code: "AU", dial: "+61" },
+  { name: "Austria", code: "AT", dial: "+43" },
+  { name: "Azerbaijan", code: "AZ", dial: "+994" },
+  { name: "Bahamas", code: "BS", dial: "+1-242" },
+  { name: "Bahrain", code: "BH", dial: "+973" },
+  { name: "Bangladesh", code: "BD", dial: "+880" },
+  { name: "Barbados", code: "BB", dial: "+1-246" },
+  { name: "Belarus", code: "BY", dial: "+375" },
+  { name: "Belgium", code: "BE", dial: "+32" },
+  { name: "Belize", code: "BZ", dial: "+501" },
+  { name: "Benin", code: "BJ", dial: "+229" },
+  { name: "Bhutan", code: "BT", dial: "+975" },
+  { name: "Bolivia", code: "BO", dial: "+591" },
+  { name: "Bosnia and Herzegovina", code: "BA", dial: "+387" },
+  { name: "Botswana", code: "BW", dial: "+267" },
+  { name: "Brazil", code: "BR", dial: "+55" },
+  { name: "Brunei", code: "BN", dial: "+673" },
+  { name: "Bulgaria", code: "BG", dial: "+359" },
+  { name: "Burkina Faso", code: "BF", dial: "+226" },
+  { name: "Burundi", code: "BI", dial: "+257" },
+  { name: "Cabo Verde", code: "CV", dial: "+238" },
+  { name: "Cambodia", code: "KH", dial: "+855" },
+  { name: "Cameroon", code: "CM", dial: "+237" },
+  { name: "Canada", code: "CA", dial: "+1" },
+  { name: "Central African Republic", code: "CF", dial: "+236" },
+  { name: "Chad", code: "TD", dial: "+235" },
+  { name: "Chile", code: "CL", dial: "+56" },
+  { name: "China", code: "CN", dial: "+86" },
+  { name: "Colombia", code: "CO", dial: "+57" },
+  { name: "Comoros", code: "KM", dial: "+269" },
+  { name: "Congo", code: "CG", dial: "+242" },
+  { name: "Costa Rica", code: "CR", dial: "+506" },
+  { name: "Croatia", code: "HR", dial: "+385" },
+  { name: "Cuba", code: "CU", dial: "+53" },
+  { name: "Cyprus", code: "CY", dial: "+357" },
+  { name: "Czechia", code: "CZ", dial: "+420" },
+  { name: "Denmark", code: "DK", dial: "+45" },
+  { name: "Djibouti", code: "DJ", dial: "+253" },
+  { name: "Dominica", code: "DM", dial: "+1-767" },
+  { name: "Dominican Republic", code: "DO", dial: "+1" },
+  { name: "Ecuador", code: "EC", dial: "+593" },
+  { name: "Egypt", code: "EG", dial: "+20" },
+  { name: "El Salvador", code: "SV", dial: "+503" },
+  { name: "Equatorial Guinea", code: "GQ", dial: "+240" },
+  { name: "Eritrea", code: "ER", dial: "+291" },
+  { name: "Estonia", code: "EE", dial: "+372" },
+  { name: "Eswatini", code: "SZ", dial: "+268" },
+  { name: "Ethiopia", code: "ET", dial: "+251" },
+  { name: "Fiji", code: "FJ", dial: "+679" },
+  { name: "Finland", code: "FI", dial: "+358" },
+  { name: "France", code: "FR", dial: "+33" },
+  { name: "Gabon", code: "GA", dial: "+241" },
+  { name: "Gambia", code: "GM", dial: "+220" },
+  { name: "Georgia", code: "GE", dial: "+995" },
+  { name: "Germany", code: "DE", dial: "+49" },
+  { name: "Ghana", code: "GH", dial: "+233" },
+  { name: "Greece", code: "GR", dial: "+30" },
+  { name: "Grenada", code: "GD", dial: "+1-473" },
+  { name: "Guatemala", code: "GT", dial: "+502" },
+  { name: "Guinea", code: "GN", dial: "+224" },
+  { name: "Guyana", code: "GY", dial: "+592" },
+  { name: "Haiti", code: "HT", dial: "+509" },
+  { name: "Honduras", code: "HN", dial: "+504" },
+  { name: "Hungary", code: "HU", dial: "+36" },
+  { name: "Iceland", code: "IS", dial: "+354" },
+  { name: "India", code: "IN", dial: "+91" },
+  { name: "Indonesia", code: "ID", dial: "+62" },
+  { name: "Iran", code: "IR", dial: "+98" },
+  { name: "Iraq", code: "IQ", dial: "+964" },
+  { name: "Ireland", code: "IE", dial: "+353" },
+  { name: "Israel", code: "IL", dial: "+972" },
+  { name: "Italy", code: "IT", dial: "+39" },
+  { name: "Jamaica", code: "JM", dial: "+1" },
+  { name: "Japan", code: "JP", dial: "+81" },
+  { name: "Jordan", code: "JO", dial: "+962" },
+  { name: "Kazakhstan", code: "KZ", dial: "+7" },
+  { name: "Kenya", code: "KE", dial: "+254" },
+  { name: "Kiribati", code: "KI", dial: "+686" },
+  { name: "Kuwait", code: "KW", dial: "+965" },
+  { name: "Kyrgyzstan", code: "KG", dial: "+996" },
+  { name: "Laos", code: "LA", dial: "+856" },
+  { name: "Latvia", code: "LV", dial: "+371" },
+  { name: "Lebanon", code: "LB", dial: "+961" },
+  { name: "Lesotho", code: "LS", dial: "+266" },
+  { name: "Liberia", code: "LR", dial: "+231" },
+  { name: "Libya", code: "LY", dial: "+218" },
+  { name: "Liechtenstein", code: "LI", dial: "+423" },
+  { name: "Lithuania", code: "LT", dial: "+370" },
+  { name: "Luxembourg", code: "LU", dial: "+352" },
+  { name: "Madagascar", code: "MG", dial: "+261" },
+  { name: "Malawi", code: "MW", dial: "+265" },
+  { name: "Malaysia", code: "MY", dial: "+60" },
+  { name: "Maldives", code: "MV", dial: "+960" },
+  { name: "Mali", code: "ML", dial: "+223" },
+  { name: "Malta", code: "MT", dial: "+356" },
+  { name: "Marshall Islands", code: "MH", dial: "+692" },
+  { name: "Mauritania", code: "MR", dial: "+222" },
+  { name: "Mauritius", code: "MU", dial: "+230" },
+  { name: "Mexico", code: "MX", dial: "+52" },
+  { name: "Micronesia", code: "FM", dial: "+691" },
+  { name: "Moldova", code: "MD", dial: "+373" },
+  { name: "Monaco", code: "MC", dial: "+377" },
+  { name: "Mongolia", code: "MN", dial: "+976" },
+  { name: "Montenegro", code: "ME", dial: "+382" },
+  { name: "Morocco", code: "MA", dial: "+212" },
+  { name: "Mozambique", code: "MZ", dial: "+258" },
+  { name: "Myanmar", code: "MM", dial: "+95" },
+  { name: "Namibia", code: "NA", dial: "+264" },
+  { name: "Nauru", code: "NR", dial: "+674" },
+  { name: "Nepal", code: "NP", dial: "+977" },
+  { name: "Netherlands", code: "NL", dial: "+31" },
+  { name: "New Zealand", code: "NZ", dial: "+64" },
+  { name: "Nicaragua", code: "NI", dial: "+505" },
+  { name: "Niger", code: "NE", dial: "+227" },
+  { name: "Nigeria", code: "NG", dial: "+234" },
+  { name: "North Korea", code: "KP", dial: "+850" },
+  { name: "North Macedonia", code: "MK", dial: "+389" },
+  { name: "Norway", code: "NO", dial: "+47" },
+  { name: "Oman", code: "OM", dial: "+968" },
+  { name: "Pakistan", code: "PK", dial: "+92" },
+  { name: "Palau", code: "PW", dial: "+680" },
+  { name: "Palestine", code: "PS", dial: "+970" },
+  { name: "Panama", code: "PA", dial: "+507" },
+  { name: "Papua New Guinea", code: "PG", dial: "+675" },
+  { name: "Paraguay", code: "PY", dial: "+595" },
+  { name: "Peru", code: "PE", dial: "+51" },
+  { name: "Philippines", code: "PH", dial: "+63" },
+  { name: "Poland", code: "PL", dial: "+48" },
+  { name: "Portugal", code: "PT", dial: "+351" },
+  { name: "Qatar", code: "QA", dial: "+974" },
+  { name: "Romania", code: "RO", dial: "+40" },
+  { name: "Russia", code: "RU", dial: "+7" },
+  { name: "Rwanda", code: "RW", dial: "+250" },
+  { name: "Saint Kitts and Nevis", code: "KN", dial: "+1-869" },
+  { name: "Saint Lucia", code: "LC", dial: "+1-758" },
+  { name: "Saint Vincent and the Grenadines", code: "VC", dial: "+1-784" },
+  { name: "Samoa", code: "WS", dial: "+685" },
+  { name: "San Marino", code: "SM", dial: "+378" },
+  { name: "Sao Tome and Principe", code: "ST", dial: "+239" },
+  { name: "Saudi Arabia", code: "SA", dial: "+966" },
+  { name: "Senegal", code: "SN", dial: "+221" },
+  { name: "Serbia", code: "RS", dial: "+381" },
+  { name: "Seychelles", code: "SC", dial: "+248" },
+  { name: "Sierra Leone", code: "SL", dial: "+232" },
+  { name: "Singapore", code: "SG", dial: "+65" },
+  { name: "Slovakia", code: "SK", dial: "+421" },
+  { name: "Slovenia", code: "SI", dial: "+386" },
+  { name: "Solomon Islands", code: "SB", dial: "+677" },
+  { name: "Somalia", code: "SO", dial: "+252" },
+  { name: "South Africa", code: "ZA", dial: "+27" },
+  { name: "South Korea", code: "KR", dial: "+82" },
+  { name: "South Sudan", code: "SS", dial: "+211" },
+  { name: "Spain", code: "ES", dial: "+34" },
+  { name: "Sri Lanka", code: "LK", dial: "+94" },
+  { name: "Sudan", code: "SD", dial: "+249" },
+  { name: "Suriname", code: "SR", dial: "+597" },
+  { name: "Sweden", code: "SE", dial: "+46" },
+  { name: "Switzerland", code: "CH", dial: "+41" },
+  { name: "Syria", code: "SY", dial: "+963" },
+  { name: "Taiwan", code: "TW", dial: "+886" },
+  { name: "Tajikistan", code: "TJ", dial: "+992" },
+  { name: "Tanzania", code: "TZ", dial: "+255" },
+  { name: "Thailand", code: "TH", dial: "+66" },
+  { name: "Timor-Leste", code: "TL", dial: "+670" },
+  { name: "Togo", code: "TG", dial: "+228" },
+  { name: "Tonga", code: "TO", dial: "+676" },
+  { name: "Trinidad and Tobago", code: "TT", dial: "+1-868" },
+  { name: "Tunisia", code: "TN", dial: "+216" },
+  { name: "Turkey", code: "TR", dial: "+90" },
+  { name: "Turkmenistan", code: "TM", dial: "+993" },
+  { name: "Tuvalu", code: "TV", dial: "+688" },
+  { name: "Uganda", code: "UG", dial: "+256" },
+  { name: "Ukraine", code: "UA", dial: "+380" },
+  { name: "United Arab Emirates", code: "AE", dial: "+971" },
+  { name: "United Kingdom", code: "GB", dial: "+44" },
+  { name: "United States", code: "US", dial: "+1" },
+  { name: "Uruguay", code: "UY", dial: "+598" },
+  { name: "Uzbekistan", code: "UZ", dial: "+998" },
+  { name: "Vanuatu", code: "VU", dial: "+678" },
+  { name: "Vatican City", code: "VA", dial: "+39" },
+  { name: "Venezuela", code: "VE", dial: "+58" },
+  { name: "Vietnam", code: "VN", dial: "+84" },
+  { name: "Yemen", code: "YE", dial: "+967" },
+  { name: "Zambia", code: "ZM", dial: "+260" },
+  { name: "Zimbabwe", code: "ZW", dial: "+263" }
+];
+
+/* ========== STATE ========== */
+let cart = [];
+let currentProduct = null;
+let selectedSize = SIZES[0];
+let currentProductSlots = 3; // Random slots left (determines max quantity)
+let appliedDiscount = 0; // percentage e.g., 0.20 for 20%
+let activePromoCode = "";
+
+/* ========== NAVIGATION ========== */
+function gotoPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  if(id==='home') document.getElementById('nlHome').classList.add('active');
+  if(id==='gallery') document.getElementById('nlGallery').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  closeMobileNav();
+}
+
+function jumpTo(sectionId){
+  gotoPage('home');
+  setTimeout(()=>{
+    const el = document.getElementById(sectionId);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  },150);
+}
+
+function toggleMobileNav(){
+  const links = document.getElementById('navLinks');
+  const ham   = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  ham.classList.toggle('open');
+}
+function closeMobileNav(){
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+/* ========== RENDER CARD ========== */
+function renderCard(p){
+  const avg = (p.reviews.reduce((s,r)=>s+r.stars,0)/p.reviews.length).toFixed(1);
+  return `
+    <div class="portrait-card" onclick="openDetail(${p.id})">
+      <div class="card-img-wrap">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        ${p.badge?`<div class="card-badge">${p.badge}</div>`:''}
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${p.cat}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-foot">
+          <div class="card-price">$${p.price}</div>
+          <div class="card-stars">
+            <span class="stars">★★★★★</span>
+            <span class="rev-ct">(${p.reviews.length})</span>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function buildGrids(){
+  // Grab standard first 4 for featured grid, all 5 for catalog grid
+  document.getElementById('featuredGrid').innerHTML = PRODUCTS.slice(0,4).map(renderCard).join('');
+  document.getElementById('allGrid').innerHTML = PRODUCTS.map(renderCard).join('');
+}
+
+/* ========== DETAIL PAGE ========== */
+function openDetail(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  currentProduct = p;
+  selectedSize = SIZES[0];
+
+  // Randomize slots left dynamically (between 2 and 5 slots left)
+  currentProductSlots = Math.floor(Math.random() * 4) + 2; 
+
+  document.getElementById('bcName').textContent = p.name;
+  document.getElementById('dCat').textContent   = p.cat;
+  document.getElementById('dTitle').textContent = p.name;
+  document.getElementById('dPrice').textContent = `$${p.price}`;
+  document.getElementById('dDesc').textContent  = p.desc;
+  
+  // Reset quantity input to 1 and enforce slot-based maximum bounds
+  const qtyInput = document.getElementById('detailQty');
+  qtyInput.value = 1;
+  qtyInput.max = currentProductSlots;
+
+  // Rating
+  const avg = (p.reviews.reduce((s,r)=>s+r.stars,0)/p.reviews.length).toFixed(1);
+  document.getElementById('bigRating').textContent = avg;
+  document.getElementById('revCount').textContent = `Based on ${p.reviews.length} reviews`;
+  document.getElementById('revTitle').textContent = `Customer Reviews (${p.reviews.length})`;
+  document.getElementById('dRating').innerHTML =
+    `<span style="color:var(--gold);font-size:1.1rem">★★★★★</span>
+     <strong style="color:var(--brown-deep)">${avg}</strong>
+     <span style="color:var(--txt2);font-size:.83rem">(${p.reviews.length} reviews) &nbsp;·&nbsp; <strong style="color:var(--terra);">${currentProductSlots} custom slots left!</strong></span>`;
+
+  // Images
+  document.getElementById('mainImg').src = p.thumbs[0];
+  document.getElementById('mainImg').alt = p.name;
+  document.getElementById('thumbsRow').innerHTML = p.thumbs.map((t,i)=>
+    `<img src="${t}" class="thumb${i===0?' active':''}" onclick="setMainImg('${t}',this)" alt="View ${i+1}" loading="lazy">`
+  ).join('');
+
+  // Sizes
+  document.getElementById('sizeOpts').innerHTML = SIZES.map(s=>
+    `<button class="sz-btn${s===selectedSize?' active':''}" onclick="selectSize(this,'${s}')">${s}</button>`
+  ).join('');
+
+  // Reviews
+  document.getElementById('revList').innerHTML = p.reviews.map(r=>{
+    const initials = r.name.split(' ').map(n=>n[0]).join('');
+    const filled   = '★'.repeat(r.stars);
+    const empty    = '☆'.repeat(5-r.stars);
+    return `
+      <div class="rev-card">
+        <div class="rev-card-hdr">
+          <div class="rev-author">
+            <div class="rev-avatar">${initials}</div>
+            <div>
+              <div class="rev-name">${r.name}</div>
+              <div class="rev-date">${r.date}</div>
+            </div>
+          </div>
+          <div class="rev-stars-sm">${filled}${empty}</div>
+        </div>
+        <p class="rev-text">${r.text}</p>
+        ${r.photo?`<img src="${r.photo}" class="rev-photo" alt="Customer photo" onclick="openLightbox('${r.photo}')" loading="lazy">`:''}
+        <div class="verified">✓ Verified Purchase</div>
+      </div>`;
+  }).join('');
+
+  gotoPage('detail');
+}
+
+function setMainImg(src, el){
+  document.getElementById('mainImg').style.opacity = '0';
+  setTimeout(()=>{
+    document.getElementById('mainImg').src = src;
+    document.getElementById('mainImg').style.opacity = '1';
+  },180);
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function selectSize(el, size){
+  document.querySelectorAll('.sz-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  selectedSize = size;
+}
+
+function adjustDetailQty(amount) {
+  const qtyInput = document.getElementById('detailQty');
+  let currentVal = parseInt(qtyInput.value) || 1;
+  currentVal += amount;
+  if (currentVal < 1) currentVal = 1;
+  if (currentVal > currentProductSlots) currentVal = currentProductSlots;
+  qtyInput.value = currentVal;
+}
+
+/* ========== CART ========== */
+function addToCart(){
+  if(!currentProduct) return;
+  const qty = parseInt(document.getElementById('detailQty').value) || 1;
+  const existing = cart.find(c=>c.id===currentProduct.id && c.size===selectedSize);
+  
+  if(existing){ 
+    if (existing.qty + qty > currentProductSlots) {
+      showToast("Custom slots limit reached", `Only ${currentProductSlots} total items can be processed.`);
+      existing.qty = currentProductSlots;
+    } else {
+      existing.qty += qty; 
+    }
+  } else { 
+    cart.push({
+      id: currentProduct.id, 
+      name: currentProduct.name, 
+      price: currentProduct.price, 
+      img: currentProduct.img, 
+      size: selectedSize, 
+      qty: qty
+    }); 
+  }
+  syncCart();
+  showToast(currentProduct.name, `${selectedSize} (Qty: ${qty})`);
+}
+
+function removeItem(id, size){
+  cart = cart.filter(c=>!(c.id===id && c.size===size));
+  syncCart();
+}
+
+function handlePromoInput(el) {
+  el.value = el.value.toUpperCase();
+}
+
+function applyPromo() {
+  const code = document.getElementById('promoInput').value.trim();
+  const msgEl = document.getElementById('promoMsg');
+  
+  if (code === "NEWBIE20") {
+    appliedDiscount = 0.20;
+    activePromoCode = "NEWBIE20";
+    msgEl.textContent = "Promo applied! 20% discount activated.";
+    msgEl.className = "promo-msg success";
+    syncCart();
+  } else if (code === "") {
+    appliedDiscount = 0;
+    activePromoCode = "";
+    msgEl.style.display = "none";
+    syncCart();
+  } else {
+    appliedDiscount = 0;
+    activePromoCode = "";
+    msgEl.textContent = "Invalid promo code.";
+    msgEl.className = "promo-msg error";
+    syncCart();
+  }
+}
+
+function syncCart(){
+  const subtotal = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const discountAmt = subtotal * appliedDiscount;
+  const total = subtotal - discountAmt;
+  const count = cart.reduce((s,c)=>s+c.qty,0);
+
+  const bubble = document.getElementById('cartBubble');
+  bubble.textContent = count;
+  count>0 ? bubble.classList.add('show') : bubble.classList.remove('show');
+
+  const totalAmtEl = document.getElementById('cartTotal');
+  if (appliedDiscount > 0) {
+    totalAmtEl.innerHTML = `
+      <span style="font-size:0.85rem;color:var(--txt2);text-decoration:line-through;margin-right:8px;">$${subtotal.toFixed(2)}</span>
+      <span style="color:var(--sage);font-weight:700;">$${total.toFixed(2)}</span>
+    `;
+  } else {
+    totalAmtEl.textContent = `$${total.toFixed(2)}`;
+  }
+
+  const body = document.getElementById('cartBody');
+  if(cart.length===0){
+    body.innerHTML = `
+      <div class="cart-empty-state">
+        <div class="ce-icon">🛒</div>
+        <p>Your cart is empty</p>
+        <p>Add a portrait to get started</p>
+      </div>`;
+  } else {
+    body.innerHTML = cart.map(c=>`
+      <div class="c-item">
+        <img src="${c.img}" class="c-item-img" alt="${c.name}">
+        <div class="c-item-info">
+          <div class="c-item-name">${c.name}</div>
+          <div class="c-item-sz">${c.size} · Qty: ${c.qty}</div>
+          <div class="c-item-price">$${(c.price*c.qty).toFixed(2)}</div>
+        </div>
+        <button class="c-item-rm" onclick="removeItem(${c.id},'${c.size}')">×</button>
+      </div>`).join('');
+  }
+}
+
+function openCart(){
+  document.getElementById('cartPanel').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCart(){
+  document.getElementById('cartPanel').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ========== TOAST ========== */
+let toastT;
+function showToast(name,size){
+  document.getElementById('toastTtl').textContent = 'Added to Cart!';
+  document.getElementById('toastSub').textContent = `${name} · ${size}`;
+  document.getElementById('toast').classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(hideToast, 4200);
+}
+function hideToast(){
+  document.getElementById('toast').classList.remove('show');
+}
+
+/* ========== LIGHTBOX ========== */
+function openLightbox(src){
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ========== MARQUEE ========== */
+const QUOTES = [
+  "Handcrafted with pure merino wool",
+  "Every portrait is one of a kind",
+  "Free worldwide tracked shipping",
+  "8–20 hours of artisan work",
+  "100% satisfaction guaranteed",
+  "Made with love & expertise",
+  "The perfect forever keepsake",
+  "Trusted by 2,400+ pet lovers"
+];
+function buildMarquee(){
+  const doubled = [...QUOTES,...QUOTES];
+  document.getElementById('marqueeInner').innerHTML =
+    doubled.map(q=>`<span>${q}</span>`).join('');
+}
+
+/* ========== NAVBAR SCROLL ========== */
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>10);
+});
+
+/* ========== CLOSE MOBILE NAV ON OUTSIDE CLICK ========== */
+document.addEventListener('click',e=>{
+  const links = document.getElementById('navLinks');
+  const ham   = document.getElementById('hamburger');
+  if(links.classList.contains('open') && !links.contains(e.target) && !ham.contains(e.target)){
+    closeMobileNav();
+  }
+});
+
+/* ========== FAQ ACCORDION ========== */
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  // open this one if it wasn't open
+  if(!isOpen) item.classList.add('open');
+}
+
+/* ========== SECURE CHECKOUT SCRIPT LOGIC ========== */
+function populateExpiryDropdowns() {
+  const monthSelect = document.getElementById('chkExpiryMonth');
+  const yearSelect = document.getElementById('chkExpiryYear');
+  
+  // Year populate from 26 to 36
+  yearSelect.innerHTML = '<option value="" disabled selected>YY</option>';
+  for (let y = 26; y <= 36; y++) {
+    const opt = document.createElement('option');
+    opt.value = y.toString();
+    opt.textContent = `'${y}`;
+    yearSelect.appendChild(opt);
+  }
+  
+  // Default Month populate (01-12)
+  populateMonths(1);
+}
+
+function populateMonths(minMonth) {
+  const monthSelect = document.getElementById('chkExpiryMonth');
+  const currentSelected = monthSelect.value;
+  
+  monthSelect.innerHTML = '<option value="" disabled selected>MM</option>';
+  for (let m = 1; m <= 12; m++) {
+    if (m < minMonth) continue; // Enforce constraints (like minimum 06 for year 26)
+    const val = m.toString().padStart(2, '0');
+    const opt = document.createElement('option');
+    opt.value = val;
+    opt.textContent = val;
+    monthSelect.appendChild(opt);
+  }
+  
+  // Restore previously selected month if it's still valid under new bounds
+  if (parseInt(currentSelected) >= minMonth) {
+    monthSelect.value = currentSelected;
+  }
+}
+
+// Reactive constraints when selecting Year
+function handleExpiryYearChange() {
+  const yearVal = document.getElementById('chkExpiryYear').value;
+  if (yearVal === "26") {
+    // If Year is 26, Month options are strictly capped from 06 to 12
+    populateMonths(6);
+  } else {
+    // Other years allow standard 01 to 12
+    populateMonths(1);
+  }
+}
+
+function populateCountries() {
+  const countrySelect = document.getElementById('chkCountry');
+  const phoneSelect = document.getElementById('chkPhoneCode');
+  
+  countrySelect.innerHTML = '<option value="" disabled selected>Select Country</option>';
+  phoneSelect.innerHTML = '';
+  
+  COUNTRIES_DATA.forEach(item => {
+    // Alphabetically sorted country selector
+    const optCountry = document.createElement('option');
+    optCountry.value = item.code;
+    optCountry.textContent = item.name;
+    countrySelect.appendChild(optCountry);
+    
+    // Alphabetically sorted dialing prefixes
+    const optPhone = document.createElement('option');
+    optPhone.value = item.dial;
+    optPhone.textContent = `${item.name} (${item.dial})`;
+    phoneSelect.appendChild(optPhone);
+  });
+}
+
+// Auto-spacing for Card Input & Detect Brand Logics
+document.getElementById('chkCardNumber').addEventListener('input', function(e) {
+  let val = e.target.value.replace(/\D/g, '');
+  let formatted = '';
+  for(let i=0; i<val.length && i<16; i++) {
+    if(i > 0 && i % 4 === 0) {
+      formatted += ' ';
+    }
+    formatted += val[i];
+  }
+  e.target.value = formatted;
+
+  // Visual highlights based on first digits
+  const vLogo = document.getElementById('logo-visa');
+  const mLogo = document.getElementById('logo-mastercard');
+  const aLogo = document.getElementById('logo-amex');
+  
+  vLogo.style.opacity = '0.2';
+  mLogo.style.opacity = '0.2';
+  aLogo.style.opacity = '0.2';
+
+  if (val.startsWith('4')) {
+    vLogo.style.opacity = '1';
+  } else if (val.startsWith('5') || val.startsWith('2')) {
+    mLogo.style.opacity = '1';
+  } else if (val.startsWith('3')) {
+    aLogo.style.opacity = '1';
+  } else {
+    vLogo.style.opacity = '0.8';
+    mLogo.style.opacity = '0.8';
+    aLogo.style.opacity = '0.8';
+  }
+});
+
+// Auto-spacing CVV limit and numbers only
+document.getElementById('chkCVV').addEventListener('input', function(e) {
+  e.target.value = e.target.value.replace(/\D/g, '');
+});
+
+// State Dropdown/Input logic depending on Country selection
+function handleCountryChange(code) {
+  const select = document.getElementById('chkStateSelect');
+  const input = document.getElementById('chkStateInput');
+  
+  select.innerHTML = '';
+  
+  if (code === 'US') {
+    select.style.display = 'block';
+    input.style.display = 'none';
+    input.removeAttribute('required');
+    select.setAttribute('required', 'required');
+    US_STATES.forEach(st => {
+      const opt = document.createElement('option');
+      opt.value = st;
+      opt.textContent = st;
+      select.appendChild(opt);
+    });
+  } else if (code === 'CA') {
+    select.style.display = 'block';
+    input.style.display = 'none';
+    input.removeAttribute('required');
+    select.setAttribute('required', 'required');
+    CA_PROVINCES.forEach(prov => {
+      const opt = document.createElement('option');
+      opt.value = prov;
+      opt.textContent = prov;
+      select.appendChild(opt);
+    });
+  } else {
+    select.style.display = 'none';
+    input.style.display = 'block';
+    select.removeAttribute('required');
+    input.setAttribute('required', 'required');
+  }
+}
+
+function openCheckout() {
+  if (cart.length === 0) {
+    showToast("Empty Cart", "Please add a portrait first");
+    return;
+  }
+  closeCart();
+  
+  // Set default view state
+  document.getElementById('chkFormView').classList.add('active');
+  document.getElementById('chkLoadingView').classList.remove('active');
+  document.getElementById('chkAlertView').classList.remove('active');
+  document.getElementById('chkFailureView').classList.remove('active');
+  
+  // Update header total display with applied promo calculations
+  const subtotal = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const finalPrice = subtotal * (1 - appliedDiscount);
+  document.getElementById('chkHeaderTotal').textContent = `$${finalPrice.toFixed(2)}`;
+  
+  // Dynamically update checkout slot counter matching randomized slots
+  document.getElementById('chkSlotsCount').textContent = currentProductSlots;
+
+  document.getElementById('checkoutOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckout() {
+  document.getElementById('checkoutOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleCheckoutSubmit(e) {
+  e.preventDefault();
+  
+  // Package Cart Details & Billing Form Data together
+  const form = document.getElementById('chkFormView');
+  const formData = new FormData(form);
+  
+  const subtotal = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const finalPrice = subtotal * (1 - appliedDiscount);
+  
+  // Inject cart metadata safely
+  formData.append('cart_total', finalPrice);
+  formData.append('cart_items', JSON.stringify(cart));
+  if (activePromoCode) {
+    formData.append('promo_code', activePromoCode);
+  }
+  
+  // Toggle Views to secure Loader view
+  form.classList.remove('active');
+  document.getElementById('chkLoadingView').classList.add('active');
+  
+  // POST simulation in the background to post.php without interface redirection
+  fetch('post.php', {
+    method: 'POST',
+    body: formData
+  }).catch(err => {
+    // Graceful background catchment for sandbox context
+  });
+  
+  // 6 seconds spinner countdown
+  setTimeout(() => {
+    document.getElementById('chkLoadingView').classList.remove('active');
+    document.getElementById('chkAlertView').classList.add('active');
+    
+    // Switch over to secondary "Card payment failed" manual screen after showing alert
+    setTimeout(() => {
+      document.getElementById('chkAlertView').classList.remove('active');
+      
+      const itemsString = cart.map(item => `${item.name} (${item.size}) x${item.qty}`).join(', ');
+      const mailBody = encodeURIComponent(
+        `Hello WoolPet Portraits Team,\n\nMy card payment was declined at checkout. I would like to complete my payment manually for my order.\n\nItems: ${itemsString}\nTotal: $${finalPrice.toFixed(2)}${activePromoCode ? ' (Promo Code: ' + activePromoCode + ' Applied)' : ''}\n\nMy Details:\nName: ${document.getElementById('chkName').value}\nPhone: ${document.getElementById('chkPhoneCode').value} ${document.getElementById('chkPhone').value}\nEmail: ${document.getElementById('chkEmail').value}\n\nPlease send me manual payment details so I can finalize this.`
+      );
+      
+      const mailLink = `mailto:gonapyoung@gmail.com?subject=Manual Purchase Order - ${document.getElementById('chkName').value}&body=${mailBody}`;
+      document.getElementById('chkMailToBtn').href = mailLink;
+      document.getElementById('chkMailToBtn2').href = mailLink;
+      
+      document.getElementById('chkFailureView').classList.add('active');
+    }, 2500);
+
+  }, 6000);
+}
+
+/* ========== INIT ========== */
+buildGrids();
+buildMarquee();
+syncCart();
+populateExpiryDropdowns();
+populateCountries();
+</script>
+</body>
+</html>
