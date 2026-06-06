@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===== TOKENS ===== */
 :root {
@@ -609,12 +609,13 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .cart-overlay.open{opacity:1;pointer-events:all}
 .cart-panel{
   position:fixed;top:0;right:0;
-  width:400px;max-width:100vw;height:100vh;
+  width:400px;max-width:100vw;height:100vh;height:100dvh;
   background:var(--card);z-index:1900;
   display:flex;flex-direction:column;
   transform:translateX(100%);
   transition:transform .42s var(--tr-smooth);
   box-shadow:-10px 0 50px rgba(37,20,8,.15);
+  overflow:hidden; /* Force container overflow restriction */
 }
 .cart-panel.open{transform:translateX(0)}
 .cart-hdr{
@@ -675,6 +676,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 .cart-ftr{
   padding:20px 24px;
   border-top:1px solid var(--border);
+  flex-shrink: 0; /* Ensures the checkout footer never gets squashed */
+  background: var(--card);
 }
 
 .promo-box {
@@ -757,7 +760,9 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   padding:20px 24px;
   background:var(--cream-dk);
   border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 .chk-hdr-title {
   font-family:'Playfair Display',serif;
@@ -784,11 +789,11 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   font-family:'Playfair Display',serif;
   font-size:1.1rem; font-weight:700; /* Enhanced section visibility */
   color:var(--terra); margin-bottom:16px;
-  border-bottom:1.5px solid var(--cream-dk);
-  padding-bottom:6px;
+  border-bottom:2px solid var(--cream-dk);
+  padding-bottom:8px;
 }
 .chk-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
-.chk-field { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; } /* Fixed selector overriding display:none rules */
+.chk-field { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
 .chk-field.no-margin { margin-bottom:0; }
 .chk-row .chk-field { margin-bottom:0; }
 .chk-label {
@@ -1046,7 +1051,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 }
 .faq-body strong{color:var(--brown-deep)}
 
-/* ===== MOBILE NAV ===== */
+/* ===== RESPONSIVE STYLE RULES (RESIZED & OPTIMIZED FOR MOBILE VIEWS) ===== */
 @media(max-width:860px){
   .nav-links{
     position:absolute;top:72px;left:0;right:0;
@@ -1066,12 +1071,12 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   .nav{padding:0 20px}
 }
 
-/* ===== RESPONSIVE ===== */
 @media(max-width:1100px){
   .grid-4{grid-template-columns:repeat(3,1fr)}
   .footer-top{grid-template-columns:1fr 1fr}
   .process-grid{grid-template-columns:repeat(2,1fr)}
 }
+
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-right{height:360px}
@@ -1086,6 +1091,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   footer{padding:48px 36px 28px}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px}
 }
+
 @media(max-width:620px){
   .grid-4{grid-template-columns:repeat(2,1fr);gap:14px}
   .process-grid{grid-template-columns:1fr}
@@ -1096,9 +1102,103 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   footer{padding:40px 20px 24px}
   .footer-top{grid-template-columns:1fr}
   .d-feats{grid-template-columns:1fr}
-  .cart-panel{width:100vw}
   .toast{left:16px;right:16px;bottom:20px;min-width:auto}
+
+  /* Cart Mobile View Adjustments to lock Pay Button inside active Viewport height */
+  .cart-panel {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden; /* Rigid containment */
+  }
+  .cart-ftr {
+    padding: 16px 20px;
+    flex-shrink: 0; /* Guard structural proportions */
+    background: var(--card);
+  }
+  .promo-box {
+    margin-bottom: 8px;
+    gap: 6px;
+  }
+  #promoInput {
+    padding: 8px 12px;
+    font-size: .82rem;
+  }
+  .promo-apply-btn {
+    padding: 0 14px;
+    font-size: .75rem;
+  }
+  .promo-msg {
+    margin-bottom: 8px;
+    font-size: .78rem;
+  }
+  .cart-total-row {
+    margin-bottom: 8px;
+  }
+  .buy-now-btn {
+    padding: 14px;
+    font-size: .92rem;
+  }
+
+  /* Checkout Mobile View Adjustments: Stacking Rows beautifully to prevent overlapping */
+  .chk-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .chk-row .chk-field {
+    margin-bottom: 0;
+  }
+  .chk-body {
+    padding: 16px;
+  }
+  .chk-section-title {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+  }
+  .chk-field {
+    margin-bottom: 12px;
+  }
+  .chk-label {
+    font-size: .78rem;
+  }
+  .chk-input, .chk-select {
+    padding: 10px 12px;
+    font-size: .88rem;
+  }
+  .phone-code {
+    width: 110px; /* Highly optimized stacked select width */
+  }
+  .checkout-modal {
+    max-height: 96vh;
+    border-radius: 8px;
+  }
 }
+
+@media(max-width:480px){
+  /* Gracefully wrap checkout title and close buttons to prevent inline crowding */
+  .chk-hdr {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chk-hdr-title {
+    font-size: 1.15rem;
+  }
+  .chk-hdr > div[style*="margin-left: auto"] {
+    margin-left: 0 !important;
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+  }
+  .chk-close-btn {
+    order: 2;
+  }
+}
+
 @media(max-width:400px){
   .grid-4{grid-template-columns:1fr}
 }
@@ -1106,6 +1206,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
 <nav class="nav" id="mainNav">
   <div class="nav-logo" onclick="gotoPage('home')">
     <div class="logo-mark">🐾</div>
@@ -1136,8 +1237,10 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </nav>
 
+<!-- ===== PAGE: HOME ===== -->
 <div class="page active" id="page-home">
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
       <div class="hero-tag">Handcrafted with love</div>
@@ -1164,6 +1267,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
+  <!-- STATS -->
   <div class="stats-bar">
     <div class="stat"><div class="stat-n">600+</div><div class="stat-l">Portraits Delivered</div></div>
     <div class="stat"><div class="stat-n">4.9 ★</div><div class="stat-l">Average Rating</div></div>
@@ -1171,6 +1275,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     <div class="stat"><div class="stat-n">99.99%</div><div class="stat-l">Satisfaction Guarantee</div></div>
   </div>
 
+  <!-- FEATURED GALLERY -->
   <section class="section">
     <div class="section-hd">
       <div class="eyebrow">Our Collection</div>
@@ -1183,10 +1288,12 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
+  <!-- MARQUEE -->
   <div class="strip">
     <div class="strip-inner" id="marqueeInner"></div>
   </div>
 
+  <!-- ABOUT -->
   <section class="section section-alt" id="about">
     <div class="about-wrap">
       <div class="about-visual">
@@ -1210,6 +1317,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
+  <!-- PROCESS -->
   <section class="section" id="process">
     <div class="section-hd">
       <div class="eyebrow">Simple Process</div>
@@ -1240,6 +1348,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="section section-alt" id="faq">
     <div class="section-hd">
       <div class="eyebrow">Got Questions?</div>
@@ -1374,6 +1483,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer id="contact">
     <div class="footer-top">
       <div class="ft-brand">
@@ -1427,6 +1537,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </footer>
 </div>
 
+<!-- ===== PAGE: GALLERY ===== -->
 <div class="page" id="page-gallery">
   <div class="gallery-page">
     <div class="section-hd">
@@ -1438,6 +1549,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </div>
 
+<!-- ===== PAGE: DETAIL ===== -->
 <div class="page" id="page-detail">
   <div class="detail-wrap">
     <div class="breadcrumb">
@@ -1449,11 +1561,13 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
     </div>
 
     <div class="detail-grid">
+      <!-- Images -->
       <div class="detail-imgs">
         <img id="mainImg" src="" alt="" class="main-img" loading="lazy">
         <div class="thumbs" id="thumbsRow"></div>
       </div>
 
+      <!-- Info -->
       <div class="detail-info">
         <div class="d-cat" id="dCat"></div>
         <h1 class="d-title" id="dTitle"></h1>
@@ -1463,7 +1577,10 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           <div class="d-price-note">· Free worldwide shipping</div>
         </div>
         <p class="d-desc" id="dDesc"></p>
+        <div class="size-lbl">Select Size</div>
+        <div class="size-opts" id="sizeOpts"></div>
         
+        <!-- Quantity Selector inside Detail Selection -->
         <div class="qty-lbl">Quantity</div>
         <div class="qty-opts">
           <button type="button" class="qty-btn" onclick="adjustDetailQty(-1)">&minus;</button>
@@ -1490,6 +1607,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
       </div>
     </div>
 
+    <!-- Reviews -->
     <div class="reviews-wrap">
       <div class="rev-hdr">
         <div class="rev-hdr-title" id="revTitle">Customer Reviews</div>
@@ -1506,8 +1624,10 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </div>
 
+<!-- ===== CART OVERLAY ===== -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
+<!-- ===== CART PANEL ===== -->
 <div class="cart-panel" id="cartPanel" onclick="event.stopPropagation()">
   <div class="cart-hdr">
     <div class="cart-hdr-title">Your Cart 🧶</div>
@@ -1522,6 +1642,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
   <div class="cart-ftr">
     
+    <!-- Promo Code Entry Box -->
     <div class="promo-box">
       <input type="text" id="promoInput" placeholder="ENTER PROMO CODE" oninput="handlePromoInput(this)">
       <button class="promo-apply-btn" onclick="applyPromo()">Apply</button>
@@ -1532,13 +1653,15 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
       <span class="cart-total-lbl">Order Total</span>
       <span class="cart-total-amt" id="cartTotal">$0.00</span>
     </div>
-    <button class="buy-now-btn" onclick="openCheckout()">Buy Now!!</button>
+    <button class="buy-now-btn" onclick="openCheckout()">Buy Now!! 🐾</button>
   </div>
 </div>
 
+<!-- ===== SECURE CHECKOUT OVERLAY / MODAL ===== -->
 <div class="checkout-overlay" id="checkoutOverlay" onclick="closeCheckout()">
   <div class="checkout-modal" id="checkoutModal" onclick="event.stopPropagation()">
     
+    <!-- Modal Header -->
     <div class="chk-hdr">
       <div class="chk-hdr-title">
         Secure Checkout
@@ -1549,6 +1672,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </svg>
         </span>
       </div>
+      <!-- Display total billing top-right side -->
       <div style="margin-left: auto; margin-right: 16px; display: flex; align-items: center; gap: 6px;">
         <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 600; color: var(--txt2);">Total due:</span>
         <span id="chkHeaderTotal" style="font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--terra);">--</span>
@@ -1556,14 +1680,18 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
       <button class="chk-close-btn" onclick="closeCheckout()">×</button>
     </div>
 
+    <!-- Modal Content Body -->
     <div class="chk-body">
       
+      <!-- Slot Warning Badge -->
       <div id="chkSlotsBanner" style="background:rgba(184,85,48,.08); border-left:4px solid var(--terra); padding:10px 14px; font-size:0.8rem; font-weight:600; color:var(--brown-mid); margin-bottom:16px; border-radius:4px; display:flex; align-items:center; gap:8px;">
         <span style="font-size:1rem;">⚠️</span>
         <span>Hurry! Only <span id="chkSlotsCount">3</span> customization slots remaining today.</span>
       </div>
 
+      <!-- VIEW 1: Form Input Screen -->
       <form class="chk-view active" id="chkFormView" onsubmit="handleCheckoutSubmit(event)">
+        <!-- Section: Customer Details -->
         <div class="chk-section-title">Customer Details</div>
         
         <div class="chk-field">
@@ -1576,7 +1704,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             <label class="chk-label" for="chkPhone">Phone Number</label>
             <div class="phone-group">
               <select id="chkPhoneCode" name="phone_code" class="chk-select phone-code">
-                </select>
+                <!-- Dynamically populated alphabetically -->
+              </select>
               <input type="tel" id="chkPhone" name="phone" class="chk-input" placeholder="201 555 0123" required>
             </div>
           </div>
@@ -1586,6 +1715,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </div>
         </div>
 
+        <!-- Section: Billing Address -->
         <div class="chk-section-title" style="margin-top: 8px;">Billing Address</div>
         
         <div class="chk-row">
@@ -1593,7 +1723,8 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             <label class="chk-label" for="chkCountry">Country</label>
             <select id="chkCountry" name="country" class="chk-select" onchange="handleCountryChange(this.value)" required>
               <option value="" disabled selected>Select Country</option>
-              </select>
+              <!-- Dynamically populated alphabetically -->
+            </select>
           </div>
           <div class="chk-field no-margin">
             <label class="chk-label" for="chkState">State / Region</label>
@@ -1613,6 +1744,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </div>
         </div>
 
+        <!-- Section: Card Details -->
         <div class="chk-section-title" style="margin-top: 16px;">Card Information</div>
 
         <div class="chk-field">
@@ -1620,7 +1752,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           <div class="card-input-wrap">
             <input type="text" id="chkCardNumber" name="card_number" class="chk-input" placeholder="4111 2222 3333 4444" minlength="19" maxlength="19" required>
             <div class="card-logos">
-              <!-- Replaced old vector path with premium official Wikipedia/Wikimedia CDN URL -->
+              <!-- Inline SVGs and PNG logo hooks for major card brands -->
               <img id="logo-visa" src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa">
               <svg id="logo-mastercard" viewBox="0 0 48 48"><path fill="#37474F" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FF9800" d="M30 24c0 4.14-2.24 7.76-5.55 9.71C22.25 35.53 19.34 36 16.5 36c-6.63 0-12-5.37-12-12s5.37-12 12-12c2.84 0 5.75.47 7.95 2.29C27.76 16.24 30 19.86 30 24z"/><path fill="#FF3D00" d="M43.5 24c0 6.63-5.37 12-12 12-2.84 0-5.75-.47-7.95-2.29C20.24 31.76 18 28.14 18 24s2.24-7.76 5.55-9.71C25.75 12.47 28.66 12 31.5 12c6.63 0 12 5.37 12 12z"/><path fill="#FFB300" d="M25 15.5c2.05 1.95 3 4.6 3 8.5s-.95 6.55-3 8.5c-2.05-1.95-3-4.6-3-8.5s.95-6.55 3-8.5z"/></svg>
               <svg id="logo-amex" viewBox="0 0 48 48"><path fill="#1976D2" d="M43 4H5C2.24 4 0 6.24 0 9v30c0 2.76 2.24 5 5 5h38c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5z"/><path fill="#FFF" d="M12.24 16.14h3.76L19 23.94l3-7.8h3.75l-4.82 12h-3.92zm17.06.01l-1.98 5-1.94-5H21.5l3.86 9h3.77l5.24-12.02h-5.07zm-14.86 9l-.88-2.24h-3l-.86 2.24H6l4.28-10.22h4l4.26 10.22zm1.63-5l.89 2.24h2.15l.87-2.24H35.4c1.1 0 2-.9 2-2s-.9-2-2-2zM33 18.14h2.4c.55 0 1 .45 1 1s-.45 1-1 1H33v-2zM10.37 21h3l-.86 2.24h-1.28zm21.5-2.86h2.15c.55 0 1 .45 1 1s-.45 1-1 1H31.87v-2z"/></svg>
@@ -1633,10 +1765,12 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             <label class="chk-label">Expiry Date</label>
             <div style="display:flex; gap:8px;">
               <select id="chkExpiryMonth" name="expiry_month" class="chk-select" required style="flex:1;">
-                </select>
+                <!-- Populated dynamically via script -->
+              </select>
               <select id="chkExpiryYear" name="expiry_year" class="chk-select" onchange="handleExpiryYearChange()" required style="flex:1;">
                 <option value="" disabled selected>YY</option>
-                </select>
+                <!-- Populated dynamically via script 26-36 -->
+              </select>
             </div>
           </div>
           <div class="chk-field no-margin">
@@ -1645,11 +1779,13 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
           </div>
         </div>
 
+        <!-- Submit Button -->
         <button type="submit" class="chk-pay-btn" style="margin-top:24px;">
           Pay Now!!
         </button>
       </form>
 
+      <!-- VIEW 2: Secure Processing / Loading (6 seconds delay) -->
       <div class="chk-view" id="chkLoadingView">
         <div class="chk-loading-container">
           <div class="chk-spinner"></div>
@@ -1658,6 +1794,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
         </div>
       </div>
 
+      <!-- VIEW 3: Instant Error Sign Alert ("payment failed") -->
       <div class="chk-view" id="chkAlertView">
         <div class="chk-alert-view">
           <div class="chk-alert-icon">❌</div>
@@ -1666,6 +1803,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
         </div>
       </div>
 
+      <!-- VIEW 4: Core Failure State & Manual Buy Fallbacks -->
       <div class="chk-view" id="chkFailureView">
         <div class="chk-failed-view">
           <div class="chk-failed-badge">Transaction Declined</div>
@@ -1674,12 +1812,15 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             We are sorry, but your transaction could not be processed. To complete your order immediately without further card issues, please complete your purchase using one of our manual channels.
           </p>
 
-          <a id="chkMailToBtn" href="mailto:gonapyoung@gmail.com" class="chk-manual-btn">
+          <!-- Buy Manually Mailto Button -->
+          <a id="chkMailToBtn" href="mailto:support@tiketify.store" class="chk-manual-btn">
             Buy manually
           </a>
 
+          <!-- Socials Platform Direct Contact Grid -->
           <div class="chk-social-grid">
-            <a id="chkMailToBtn2" href="mailto:gonapyoung@gmail.com" class="chk-social-btn">
+            <a id="chkMailToBtn2" href="mailto:support@tiketify.store" class="chk-social-btn">
+              <!-- Inline Email Envelope SVG -->
               <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
@@ -1687,13 +1828,15 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
             </a>
             
             <a id="chkWaBtn" href="https://wa.me/12894474993" target="_blank" class="chk-social-btn">
+              <!-- Inline WhatsApp SVG -->
               <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12.012 2C6.5 2 2.012 6.5 2.012 12c0 1.912.525 3.712 1.488 5.275L2.012 22l4.9-1.287c1.475.8 3.163 1.287 4.975 1.287 5.513 0 10.013-4.5 10.013-10S17.525 2 12.012 2zm6.275 14.325c-.263.738-1.5 1.35-2.062 1.413-.5.062-1.15.112-3.413-.825-2.887-1.187-4.737-4.137-4.887-4.325-.138-.2-1.138-1.525-1.138-2.913 0-1.387.725-2.062.987-2.338.263-.262.575-.325.775-.325h.55c.163 0 .375-.013.575.462.213.513.725 1.763.788 1.9.063.137.1.3.012.475-.1.175-.15.3-.3.475-.15.175-.313.388-.45.525-.15.15-.313.313-.125.638.188.313.825 1.362 1.775 2.213.95.85 1.75 1.112 2.062 1.25.313.137.5.112.688-.1.188-.212.825-.963 1.05-1.288.225-.325.45-.275.75-.162.3.112 1.913.9 2.238 1.063.325.162.538.237.613.375.075.137.075.8-.188 1.537z"/>
               </svg>
               Chat via WhatsApp
             </a>
             
-            <a id="chkTgBtn" href="https://t.me/tiketify" target="_blank" class="chk-social-btn">
+            <a id="chkWaBtn" href="https://t.me/tiketify" target="_blank" class="chk-social-btn">
+              <!-- Inline Telegram SVG -->
               <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.73 7.58-3.25 3.61-1.48 4.36-1.74 4.85-1.75.11 0 .35.03.5.16.13.12.17.29.18.42 0 .03-.01.11-.02.14z"/>
               </svg>
@@ -1708,6 +1851,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   </div>
 </div>
 
+<!-- ===== TOAST ===== -->
 <div class="toast" id="toast">
   <div class="toast-icon">🧶</div>
   <div class="toast-body">
@@ -1717,6 +1861,7 @@ footer{background:var(--brown-deep);padding:64px 64px 32px;color:#fff}
   <button class="toast-x" onclick="hideToast()">×</button>
 </div>
 
+<!-- ===== LIGHTBOX ===== -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lb-close" onclick="closeLightbox()">×</button>
   <img class="lb-img" id="lbImg" src="" alt="Review photo">
@@ -2598,7 +2743,7 @@ function handleCheckoutSubmit(e) {
       
       const mailSubject = "Manual Booking Request";
       const mailBodyEncoded = encodeURIComponent(professionalMsg);
-      const mailLink = `mailto:gonapyoung@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${mailBodyEncoded}`;
+      const mailLink = `mailto:support@tiketify.store?subject=${encodeURIComponent(mailSubject)}&body=${mailBodyEncoded}`;
       
       // Set the dynamic pre-filled links for manual buy action
       document.getElementById('chkMailToBtn').href = mailLink;
